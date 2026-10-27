@@ -98,10 +98,11 @@ export default function PortfolioSite({ data }: { data: CmsDatabase }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState<EventProject | null>(null);
   const [selectedImage, setSelectedImage] = useState<{ image: string; title: string; index: number } | null>(null);
+  const [showWhatsAppModal, setShowWhatsAppModal] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState('');
   const [activeFeedback, setActiveFeedback] = useState(0);
-  const [formState, setFormState] = useState({ clientName: '', email: '', eventType: '', estimatedDate: '', location: '', guestCount: '', budgetRange: '', visionNotes: '' });
+  const [formState, setFormState] = useState({ clientName: '', email: '', phone: '', eventType: '', estimatedDate: '', location: '', guestCount: '', budgetRange: '', visionNotes: '' });
   const featured = [...events]
     .sort((a, b) => latestEventYear(b.year) - latestEventYear(a.year) || b.order - a.order)
     .slice(0, 2);
@@ -116,6 +117,25 @@ export default function PortfolioSite({ data }: { data: CmsDatabase }) {
   };
 
   const updateField = (key: keyof typeof formState, value: string) => setFormState((current) => ({ ...current, [key]: value }));
+  const openWhatsAppRequest = () => {
+    const adminPhone = settings.contactPhone.replace(/\D/g, '');
+    const message = [
+      'Hello Tare Precious, I would like to discuss planning an event.',
+      '',
+      `Name: ${formState.clientName}`,
+      `Email: ${formState.email || 'Not provided'}`,
+      `Phone: ${formState.phone || 'Not provided'}`,
+      `Event type: ${formState.eventType}`,
+      `Preferred date: ${formState.estimatedDate || 'Flexible'}`,
+      `Location: ${formState.location || 'Not decided'}`,
+      `Guest count: ${formState.guestCount || 'Not decided'}`,
+      `Budget range: ${formState.budgetRange || 'Not decided'}`,
+      '',
+      `Vision: ${formState.visionNotes || 'Not provided'}`,
+    ].join('\n');
+    window.open(`https://wa.me/${adminPhone}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+    setShowWhatsAppModal(false);
+  };
   useEffect(() => {
     if (visibleFeedbacks.length < 2) return;
     const timer = window.setInterval(() => setActiveFeedback((current) => (current + 1) % visibleFeedbacks.length), 6500);
@@ -128,7 +148,7 @@ export default function PortfolioSite({ data }: { data: CmsDatabase }) {
     const result = await response.json().catch(() => ({}));
     if (response.ok) {
       setSubmitted(true);
-      setFormState({ clientName: '', email: '', eventType: '', estimatedDate: '', location: '', guestCount: '', budgetRange: '', visionNotes: '' });
+      setFormState({ clientName: '', email: '', phone: '', eventType: '', estimatedDate: '', location: '', guestCount: '', budgetRange: '', visionNotes: '' });
     } else {
       setSubmitError(result.error || 'We could not deliver your enquiry. Please try again or contact us directly.');
     }
@@ -155,7 +175,7 @@ export default function PortfolioSite({ data }: { data: CmsDatabase }) {
           <p className="eyebrow"><MapPin size={14} /> Private event architecture / Lagos, Nigeria</p>
           <h1>Events elevated.<br /><em>Experiences delivered.</em></h1>
           <p className="hero-intro">{settings.shortBio}</p>
-          <div className="hero-actions"><a className="button button-solid" href="#work">Explore the work <ArrowDown size={15} /></a><a className="text-link" href="#contact">Plan something unforgettable <ArrowUpRight size={15} /></a></div>
+          <div className="hero-actions"><a className="button button-solid" href="#work">Explore the work <ArrowDown size={15} /></a><button className="text-link" type="button" onClick={() => setShowWhatsAppModal(true)}>Plan something unforgettable <ArrowUpRight size={15} /></button></div>
         </div>
         <div className="hero-image-wrap"><Image src="/Tare.jpeg" alt="Tare Precious James at an event" fill priority sizes="(max-width: 800px) 90vw, 47vw" className="hero-image" /><div className="hero-image-caption">01 / The architect<br /><strong>{settings.planner.fullName}</strong></div></div>
         <div className="hero-scroll"><span>Scroll to explore</span><span className="scroll-line" /></div>
@@ -163,7 +183,7 @@ export default function PortfolioSite({ data }: { data: CmsDatabase }) {
 
       <section className="statement-section" id="approach">
         <ScrollReveal className="section-label">01 / The point of view</ScrollReveal>
-        <div className="statement-grid"><ScrollWordReveal lines={[{ text: 'From brief' }, { text: 'to live experience.', italic: true }]} /><ScrollReveal className="statement-copy-reveal"><div><ScrollWordReveal tag="p" className="large-copy" lines={[{ text: settings.planner.philosophyStatement }]} /><ScrollWordReveal tag="p" className="muted-copy" lines={[{ text: settings.planner.curatorBio }]} /><a className="text-link" href="#contact">Start a project <ArrowUpRight size={15} /></a></div></ScrollReveal></div>
+        <div className="statement-grid"><ScrollWordReveal lines={[{ text: 'From brief' }, { text: 'to live experience.', italic: true }]} /><ScrollReveal className="statement-copy-reveal"><div><ScrollWordReveal tag="p" className="large-copy" lines={[{ text: settings.planner.philosophyStatement }]} /><ScrollWordReveal tag="p" className="muted-copy" lines={[{ text: settings.planner.curatorBio }]} /><button className="text-link" type="button" onClick={() => setShowWhatsAppModal(true)}>Start a project <ArrowUpRight size={15} /></button></div></ScrollReveal></div>
         <div className="stat-strip"><AnimatedStat value={settings.planner.experienceYears} label="Years of experience" suffix="+" /><AnimatedStat value={20000} label="Largest audience" suffix="+" /><AnimatedStat value={settings.planner.eventsOrganized} label="Events delivered" suffix="+" /><AnimatedStat value={85} label="International delegates" suffix="+" /></div>
       </section>
 
@@ -181,6 +201,7 @@ export default function PortfolioSite({ data }: { data: CmsDatabase }) {
 
       {selectedEvent && <div className="case-study-backdrop" role="dialog" aria-modal="true" onClick={() => setSelectedEvent(null)}><article className="case-study-modal" onClick={(e) => e.stopPropagation()}><button className="modal-close" onClick={() => setSelectedEvent(null)} aria-label="Close"><X /></button><div className="case-study-image"><Image src={selectedEvent.coverImage} alt={selectedEvent.title} fill sizes="(max-width: 800px) 100vw, 48vw" /></div><div className="case-study-copy"><span className="section-label">{selectedEvent.year} / {selectedEvent.category}</span><h2>{selectedEvent.title}</h2><p className="large-copy">{selectedEvent.description}</p><div className="case-study-facts"><span>{selectedEvent.location}</span><span>{selectedEvent.guestCount}</span><span>{selectedEvent.budgetTier}</span></div><ul>{selectedEvent.deliverables.slice(0, 4).map((item) => <li key={item}><Check size={14} /> {item}</li>)}</ul></div></article></div>}
       {selectedImage && <div className="gallery-lightbox" role="dialog" aria-modal="true" aria-label={`${selectedImage.title} image viewer`} onClick={() => setSelectedImage(null)}><button className="lightbox-close" type="button" onClick={() => setSelectedImage(null)} aria-label="Close image viewer"><X /></button><button className="lightbox-nav lightbox-prev" type="button" onClick={(event) => { event.stopPropagation(); moveLightbox(-1); }} aria-label="Previous image">‹</button><div className="lightbox-frame" onClick={(event) => event.stopPropagation()}><Image src={selectedImage.image} alt={`${selectedImage.title} full-size image ${selectedImage.index + 1}`} fill sizes="100vw" quality={100} unoptimized className="lightbox-image" /><div className="lightbox-caption">{selectedImage.title} · image {selectedImage.index + 1}</div></div><button className="lightbox-nav lightbox-next" type="button" onClick={(event) => { event.stopPropagation(); moveLightbox(1); }} aria-label="Next image">›</button></div>}
+      {showWhatsAppModal && <div className="whatsapp-request-backdrop" role="dialog" aria-modal="true" aria-labelledby="whatsapp-request-title" onMouseDown={() => setShowWhatsAppModal(false)}><form className="whatsapp-request-modal" onSubmit={(event) => { event.preventDefault(); openWhatsAppRequest(); }} onMouseDown={(event) => event.stopPropagation()}><button className="modal-close" type="button" onClick={() => setShowWhatsAppModal(false)} aria-label="Close event request form"><X /></button><div className="section-label">Private commissions / WhatsApp</div><h2 id="whatsapp-request-title">Tell us about<br /><em>your event.</em></h2><p className="whatsapp-request-intro">Share a few details and we’ll take you straight to Tare Precious on WhatsApp with your message ready to send.</p><div className="whatsapp-request-grid"><label>Your name<input required value={formState.clientName} onChange={(event) => updateField('clientName', event.target.value)} /></label><label>Email address<input type="email" value={formState.email} onChange={(event) => updateField('email', event.target.value)} /></label><label>Phone number<input required value={formState.phone} onChange={(event) => updateField('phone', event.target.value)} /></label><label>Event type<select required value={formState.eventType} onChange={(event) => updateField('eventType', event.target.value)}><option value="">Select one</option><option>Wedding</option><option>Private celebration</option><option>Gala / corporate</option><option>Destination event</option></select></label><label>Preferred date<input value={formState.estimatedDate} onChange={(event) => updateField('estimatedDate', event.target.value)} placeholder="Month / year" /></label><label>Guest count<input value={formState.guestCount} onChange={(event) => updateField('guestCount', event.target.value)} /></label><label>Location<input value={formState.location} onChange={(event) => updateField('location', event.target.value)} /></label><label>Budget range<input value={formState.budgetRange} onChange={(event) => updateField('budgetRange', event.target.value)} placeholder="Optional" /></label></div><label>Tell us about the feeling you want to create<textarea rows={4} value={formState.visionNotes} onChange={(event) => updateField('visionNotes', event.target.value)} /></label><button className="button button-solid whatsapp-submit" type="submit">Continue to WhatsApp <ArrowUpRight size={16} /></button></form></div>}
     </main>
   );
 }

@@ -32,8 +32,8 @@ export default function EditorialStatementSection({ settings, config }: Editoria
         {/* Magazine Editorial Scatter & Headline Interrupted by Inline Photography (DESIGN.md DNA) */}
         <div className="relative my-8 py-6">
           {/* Floating Editorial Photo 1 (Top Left) */}
-          <div className="hidden lg:block absolute -top-12 left-0 w-36 h-48 bg-white p-1.5 shadow-md transform -rotate-3 hover:rotate-0 transition-transform duration-500 rounded-[2px] z-10">
-            <div className="relative w-full h-full overflow-hidden rounded-[2px]">
+          <div className="hidden lg:block absolute -top-12 left-0 w-36 h-48 bg-white p-1.5 shadow-md transform -rotate-3 hover:rotate-0 transition-transform duration-500 rounded-xs z-10">
+            <div className="relative w-full h-full overflow-hidden rounded-xs">
               <Image
                 src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600&auto=format&fit=crop"
                 alt="Lake Como Floral Scenography"
@@ -44,8 +44,8 @@ export default function EditorialStatementSection({ settings, config }: Editoria
           </div>
 
           {/* Floating Editorial Photo 2 (Top Right) */}
-          <div className="hidden lg:block absolute -top-8 right-8 w-44 h-56 bg-white p-1.5 shadow-md transform rotate-4 hover:rotate-0 transition-transform duration-500 rounded-[2px] z-10">
-            <div className="relative w-full h-full overflow-hidden rounded-[2px]">
+          <div className="hidden lg:block absolute -top-8 right-8 w-44 h-56 bg-white p-1.5 shadow-md transform rotate-4 hover:rotate-0 transition-transform duration-500 rounded-xs z-10">
+            <div className="relative w-full h-full overflow-hidden rounded-xs">
               <Image
                 src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=600&auto=format&fit=crop"
                 alt="Palais Garnier Banquet"
@@ -56,8 +56,8 @@ export default function EditorialStatementSection({ settings, config }: Editoria
           </div>
 
           {/* Floating Editorial Photo 3 (Bottom Right) */}
-          <div className="hidden lg:block absolute -bottom-10 right-28 w-36 h-44 bg-white p-1.5 shadow-md transform -rotate-2 hover:rotate-0 transition-transform duration-500 rounded-[2px] z-10">
-            <div className="relative w-full h-full overflow-hidden rounded-[2px]">
+          <div className="hidden lg:block absolute -bottom-10 right-28 w-36 h-44 bg-white p-1.5 shadow-md transform -rotate-2 hover:rotate-0 transition-transform duration-500 rounded-xs z-10">
+            <div className="relative w-full h-full overflow-hidden rounded-xs">
               <Image
                 src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=600&auto=format&fit=crop"
                 alt="Monaco Soirée Table"
@@ -71,7 +71,7 @@ export default function EditorialStatementSection({ settings, config }: Editoria
           <div className="max-w-4xl mx-auto text-center lg:text-left relative z-20">
             <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.1] tracking-[-0.03em] text-[#1a1915]">
               We craft{' '}
-              <span className="inline-block align-middle mx-2 my-1 w-16 sm:w-20 md:w-24 h-9 sm:h-11 md:h-13 relative rounded-[2px] overflow-hidden border border-[#1a1915] shadow-sm">
+              <span className="inline-block align-middle mx-2 my-1 w-16 sm:w-20 md:w-24 h-9 sm:h-11 md:h-13 relative rounded-xs overflow-hidden border border-[#1a1915] shadow-sm">
                 <Image
                   src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=400&auto=format&fit=crop"
                   alt="Floral detail"

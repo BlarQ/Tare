@@ -145,9 +145,9 @@ export default function ImageUploader({
         <div className="space-y-3">
           {/* Thumbnails Grid */}
           {values && values.length > 0 && (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 p-3 bg-black/60 border border-white/10 rounded-[2px]">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 p-3 bg-black/60 border border-white/10 rounded-xs">
               {values.map((imgUrl, idx) => (
-                <div key={idx} className="relative group h-24 rounded-[2px] overflow-hidden border border-white/15 bg-neutral-900">
+                <div key={idx} className="relative group h-24 rounded-xs overflow-hidden border border-white/15 bg-neutral-900">
                   <Image
                     src={imgUrl}
                     alt={`Gallery asset ${idx + 1}`}
@@ -179,7 +179,7 @@ export default function ImageUploader({
             onDragOver={handleDrag}
             onDrop={handleDrop}
             onClick={() => fileInputRef.current?.click()}
-            className={`border border-dashed p-4 rounded-[2px] text-center cursor-pointer transition-all flex flex-col items-center justify-center gap-2 ${
+            className={`border border-dashed p-4 rounded-xs text-center cursor-pointer transition-all flex flex-col items-center justify-center gap-2 ${
               dragActive
                 ? 'border-[#3ecf8e] bg-[#3ecf8e]/10'
                 : 'border-white/20 bg-black/40 hover:border-[#d4af37] hover:bg-white/5'
@@ -209,8 +209,8 @@ export default function ImageUploader({
         /* SINGLE IMAGE UPLOAD VIEW */
         <div className="space-y-2">
           {value ? (
-            <div className="relative group flex items-center gap-4 p-3 bg-black border border-white/15 rounded-[2px]">
-              <div className="relative w-20 h-20 rounded-[2px] overflow-hidden border border-white/15 bg-neutral-900 shrink-0">
+            <div className="relative group flex items-center gap-4 p-3 bg-black border border-white/15 rounded-xs">
+              <div className="relative w-20 h-20 rounded-xs overflow-hidden border border-white/15 bg-neutral-900 shrink-0">
                 <Image
                   src={value}
                   alt="Uploaded preview"
@@ -229,14 +229,14 @@ export default function ImageUploader({
                   <button
                     type="button"
                     onClick={() => fileInputRef.current?.click()}
-                    className="px-3 py-1 bg-neutral-900 hover:bg-neutral-800 border border-white/15 font-mono text-[10px] text-white rounded-[2px] transition-colors"
+                    className="px-3 py-1 bg-neutral-900 hover:bg-neutral-800 border border-white/15 font-mono text-[10px] text-white rounded-xs transition-colors"
                   >
                     Replace Image
                   </button>
                   <button
                     type="button"
                     onClick={handleRemoveSingle}
-                    className="px-3 py-1 bg-red-950/40 hover:bg-red-950 border border-red-500/30 font-mono text-[10px] text-red-300 rounded-[2px] transition-colors"
+                    className="px-3 py-1 bg-red-950/40 hover:bg-red-950 border border-red-500/30 font-mono text-[10px] text-red-300 rounded-xs transition-colors"
                   >
                     Remove
                   </button>
@@ -250,7 +250,7 @@ export default function ImageUploader({
               onDragOver={handleDrag}
               onDrop={handleDrop}
               onClick={() => fileInputRef.current?.click()}
-              className={`border border-dashed p-6 rounded-[2px] text-center cursor-pointer transition-all flex flex-col items-center justify-center gap-2.5 ${
+              className={`border border-dashed p-6 rounded-xs text-center cursor-pointer transition-all flex flex-col items-center justify-center gap-2.5 ${
                 dragActive
                   ? 'border-[#3ecf8e] bg-[#3ecf8e]/10'
                   : 'border-white/20 bg-black/40 hover:border-[#d4af37] hover:bg-white/5'

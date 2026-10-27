@@ -202,7 +202,7 @@ export default function AdminDashboardPage() {
       {/* Top Admin Header */}
       <header className="bg-black border-b border-white/10 px-3 xs:px-4 sm:px-6 py-3 sm:py-4 sticky top-0 z-30 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-3">
-          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-[2px] bg-[#d4af37] text-black font-bold flex items-center justify-center text-xs shrink-0">
+          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xs bg-[#d4af37] text-black font-bold flex items-center justify-center text-xs shrink-0">
             <Shield className="w-4 h-4" />
           </div>
           <div className="min-w-0">
@@ -220,7 +220,7 @@ export default function AdminDashboardPage() {
           {/* Supabase Status Pill */}
           <button
             onClick={() => setActiveTab('supabase')}
-            className={`px-2.5 sm:px-3 py-1 sm:py-1.5 border font-mono text-[10px] sm:text-xs rounded-[2px] flex items-center gap-1.5 sm:gap-2 transition-colors ${
+            className={`px-2.5 sm:px-3 py-1 sm:py-1.5 border font-mono text-[10px] sm:text-xs rounded-xs flex items-center gap-1.5 sm:gap-2 transition-colors ${
               supabaseStatus?.connected
                 ? 'bg-[#3ecf8e]/10 border-[#3ecf8e]/40 text-[#3ecf8e] hover:bg-[#3ecf8e]/20'
                 : supabaseStatus?.isConfigured
@@ -250,7 +250,7 @@ export default function AdminDashboardPage() {
           <Link
             href="/"
             target="_blank"
-            className="px-2.5 sm:px-3.5 py-1 sm:py-1.5 bg-neutral-900 border border-white/15 text-neutral-300 hover:text-white font-mono text-[10px] sm:text-xs rounded-[2px] flex items-center gap-1.5 transition-colors"
+            className="px-2.5 sm:px-3.5 py-1 sm:py-1.5 bg-neutral-900 border border-white/15 text-neutral-300 hover:text-white font-mono text-[10px] sm:text-xs rounded-xs flex items-center gap-1.5 transition-colors"
           >
             <Eye className="w-3.5 h-3.5" />
             <span className="hidden xs:inline">Live Website</span>
@@ -258,7 +258,7 @@ export default function AdminDashboardPage() {
 
           <button
             onClick={handleResetDefaults}
-            className="px-2.5 sm:px-3.5 py-1 sm:py-1.5 bg-neutral-900 border border-white/15 text-neutral-400 hover:text-red-400 font-mono text-[10px] sm:text-xs rounded-[2px] flex items-center gap-1.5 transition-colors"
+            className="px-2.5 sm:px-3.5 py-1 sm:py-1.5 bg-neutral-900 border border-white/15 text-neutral-400 hover:text-red-400 font-mono text-[10px] sm:text-xs rounded-xs flex items-center gap-1.5 transition-colors"
             title="Reset to default seed data"
           >
             <RefreshCw className="w-3.5 h-3.5" />
@@ -268,7 +268,7 @@ export default function AdminDashboardPage() {
           <button
             onClick={handleSaveAll}
             disabled={saving}
-            className="px-3 sm:px-5 py-1 sm:py-2 bg-[#d4af37] text-black font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider rounded-[2px] hover:bg-white transition-colors flex items-center gap-1.5 sm:gap-2 shadow-lg shadow-[#d4af37]/20 disabled:opacity-50"
+            className="px-3 sm:px-5 py-1 sm:py-2 bg-[#d4af37] text-black font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider rounded-xs hover:bg-white transition-colors flex items-center gap-1.5 sm:gap-2 shadow-lg shadow-[#d4af37]/20 disabled:opacity-50"
           >
             {saving ? (
               <RefreshCw className="w-3.5 h-3.5 animate-spin" />
@@ -282,7 +282,7 @@ export default function AdminDashboardPage() {
 
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 bg-[#d4af37] text-black font-mono text-xs px-5 py-3 rounded-[2px] shadow-2xl flex items-center gap-2 font-bold animate-fade-in">
+        <div className="fixed bottom-6 right-6 z-50 bg-[#d4af37] text-black font-mono text-xs px-5 py-3 rounded-xs shadow-2xl flex items-center gap-2 font-bold animate-fade-in">
           <CheckCircle className="w-4 h-4" />
           {toastMessage}
         </div>
@@ -295,7 +295,7 @@ export default function AdminDashboardPage() {
           <div className="flex flex-row md:flex-col gap-1 sm:gap-1.5 min-w-max md:min-w-0">
             <button
               onClick={() => setActiveTab('planner')}
-              className={`px-3 sm:px-4 py-2 sm:py-3 font-mono text-xs tracking-wider uppercase rounded-[2px] flex items-center gap-2.5 transition-colors text-left whitespace-nowrap ${
+              className={`px-3 sm:px-4 py-2 sm:py-3 font-mono text-xs tracking-wider uppercase rounded-xs flex items-center gap-2.5 transition-colors text-left whitespace-nowrap ${
                 activeTab === 'planner'
                   ? 'bg-[#d4af37] text-black font-bold'
                   : 'text-neutral-300 hover:bg-white/5'
@@ -307,7 +307,7 @@ export default function AdminDashboardPage() {
 
             <button
               onClick={() => setActiveTab('branding')}
-              className={`px-3 sm:px-4 py-2 sm:py-3 font-mono text-xs tracking-wider uppercase rounded-[2px] flex items-center gap-2.5 transition-colors text-left whitespace-nowrap ${
+              className={`px-3 sm:px-4 py-2 sm:py-3 font-mono text-xs tracking-wider uppercase rounded-xs flex items-center gap-2.5 transition-colors text-left whitespace-nowrap ${
                 activeTab === 'branding'
                   ? 'bg-[#d4af37] text-black font-bold'
                   : 'text-neutral-300 hover:bg-white/5'
@@ -319,7 +319,7 @@ export default function AdminDashboardPage() {
 
             <button
               onClick={() => setActiveTab('navigation')}
-              className={`px-3 sm:px-4 py-2 sm:py-3 font-mono text-xs tracking-wider uppercase rounded-[2px] flex items-center gap-2.5 transition-colors text-left whitespace-nowrap ${
+              className={`px-3 sm:px-4 py-2 sm:py-3 font-mono text-xs tracking-wider uppercase rounded-xs flex items-center gap-2.5 transition-colors text-left whitespace-nowrap ${
                 activeTab === 'navigation'
                   ? 'bg-[#d4af37] text-black font-bold'
                   : 'text-neutral-300 hover:bg-white/5'
@@ -331,7 +331,7 @@ export default function AdminDashboardPage() {
 
             <button
               onClick={() => setActiveTab('sections')}
-              className={`px-3 sm:px-4 py-2 sm:py-3 font-mono text-xs tracking-wider uppercase rounded-[2px] flex items-center gap-2.5 transition-colors text-left whitespace-nowrap ${
+              className={`px-3 sm:px-4 py-2 sm:py-3 font-mono text-xs tracking-wider uppercase rounded-xs flex items-center gap-2.5 transition-colors text-left whitespace-nowrap ${
                 activeTab === 'sections'
                   ? 'bg-[#d4af37] text-black font-bold'
                   : 'text-neutral-300 hover:bg-white/5'
@@ -343,7 +343,7 @@ export default function AdminDashboardPage() {
 
             <button
               onClick={() => setActiveTab('events')}
-              className={`px-3 sm:px-4 py-2 sm:py-3 font-mono text-xs tracking-wider uppercase rounded-[2px] flex items-center gap-2.5 transition-colors text-left whitespace-nowrap ${
+              className={`px-3 sm:px-4 py-2 sm:py-3 font-mono text-xs tracking-wider uppercase rounded-xs flex items-center gap-2.5 transition-colors text-left whitespace-nowrap ${
                 activeTab === 'events'
                   ? 'bg-[#d4af37] text-black font-bold'
                   : 'text-neutral-300 hover:bg-white/5'
@@ -355,7 +355,7 @@ export default function AdminDashboardPage() {
 
             <button
               onClick={() => setActiveTab('services')}
-              className={`px-3 sm:px-4 py-2 sm:py-3 font-mono text-xs tracking-wider uppercase rounded-[2px] flex items-center gap-2.5 transition-colors text-left whitespace-nowrap ${
+              className={`px-3 sm:px-4 py-2 sm:py-3 font-mono text-xs tracking-wider uppercase rounded-xs flex items-center gap-2.5 transition-colors text-left whitespace-nowrap ${
                 activeTab === 'services'
                   ? 'bg-[#d4af37] text-black font-bold'
                   : 'text-neutral-300 hover:bg-white/5'
@@ -367,7 +367,7 @@ export default function AdminDashboardPage() {
 
             <button
               onClick={() => setActiveTab('testimonials')}
-              className={`px-3 sm:px-4 py-2 sm:py-3 font-mono text-xs tracking-wider uppercase rounded-[2px] flex items-center gap-2.5 transition-colors text-left whitespace-nowrap ${
+              className={`px-3 sm:px-4 py-2 sm:py-3 font-mono text-xs tracking-wider uppercase rounded-xs flex items-center gap-2.5 transition-colors text-left whitespace-nowrap ${
                 activeTab === 'testimonials'
                   ? 'bg-[#d4af37] text-black font-bold'
                   : 'text-neutral-300 hover:bg-white/5'
@@ -379,7 +379,7 @@ export default function AdminDashboardPage() {
 
             <button
               onClick={() => setActiveTab('inquiries')}
-              className={`px-3 sm:px-4 py-2 sm:py-3 font-mono text-xs tracking-wider uppercase rounded-[2px] flex items-center justify-between gap-3 transition-colors text-left whitespace-nowrap ${
+              className={`px-3 sm:px-4 py-2 sm:py-3 font-mono text-xs tracking-wider uppercase rounded-xs flex items-center justify-between gap-3 transition-colors text-left whitespace-nowrap ${
                 activeTab === 'inquiries'
                   ? 'bg-[#d4af37] text-black font-bold'
                   : 'text-neutral-300 hover:bg-white/5'
@@ -404,7 +404,7 @@ export default function AdminDashboardPage() {
             <div className="pt-0 md:pt-3 md:mt-3 md:border-t border-white/10">
               <button
                 onClick={() => setActiveTab('supabase')}
-                className={`px-3 sm:px-4 py-2 sm:py-3 font-mono text-xs tracking-wider uppercase rounded-[2px] flex items-center justify-between gap-3 transition-colors text-left whitespace-nowrap ${
+                className={`px-3 sm:px-4 py-2 sm:py-3 font-mono text-xs tracking-wider uppercase rounded-xs flex items-center justify-between gap-3 transition-colors text-left whitespace-nowrap ${
                   activeTab === 'supabase'
                     ? 'bg-[#3ecf8e] text-black font-bold'
                     : 'text-neutral-300 hover:bg-white/5'
@@ -438,7 +438,7 @@ export default function AdminDashboardPage() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-neutral-950 p-6 md:p-8 border border-white/10 rounded-[2px]">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-neutral-950 p-6 md:p-8 border border-white/10 rounded-xs">
                 <div>
                   <label className="block font-mono text-xs text-neutral-400 uppercase tracking-wider mb-2">
                     Planner Full Name
@@ -455,7 +455,7 @@ export default function AdminDashboardPage() {
                         }
                       })
                     }
-                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-[2px]"
+                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-xs"
                   />
                 </div>
 
@@ -475,7 +475,7 @@ export default function AdminDashboardPage() {
                         }
                       })
                     }
-                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-[2px]"
+                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-xs"
                   />
                 </div>
 
@@ -512,7 +512,7 @@ export default function AdminDashboardPage() {
                         }
                       })
                     }
-                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-[2px]"
+                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-xs"
                   />
                 </div>
 
@@ -532,7 +532,7 @@ export default function AdminDashboardPage() {
                         }
                       })
                     }
-                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-[2px]"
+                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-xs"
                   />
                 </div>
 
@@ -552,7 +552,7 @@ export default function AdminDashboardPage() {
                         }
                       })
                     }
-                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-[2px]"
+                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-xs"
                   />
                 </div>
 
@@ -572,7 +572,7 @@ export default function AdminDashboardPage() {
                         }
                       })
                     }
-                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-[2px]"
+                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-xs"
                   />
                 </div>
 
@@ -592,7 +592,7 @@ export default function AdminDashboardPage() {
                         }
                       })
                     }
-                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-[2px]"
+                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-xs"
                   />
                 </div>
 
@@ -612,7 +612,7 @@ export default function AdminDashboardPage() {
                         }
                       })
                     }
-                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-[2px]"
+                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-xs"
                   />
                 </div>
               </div>
@@ -631,7 +631,7 @@ export default function AdminDashboardPage() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-neutral-950 p-6 md:p-8 border border-white/10 rounded-[2px]">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-neutral-950 p-6 md:p-8 border border-white/10 rounded-xs">
                 <div>
                   <label className="block font-mono text-xs text-neutral-400 uppercase tracking-wider mb-2">
                     Brand / Atelier Name
@@ -645,7 +645,7 @@ export default function AdminDashboardPage() {
                         settings: { ...data.settings, brandName: e.target.value }
                       })
                     }
-                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-[2px]"
+                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-xs"
                   />
                 </div>
 
@@ -663,7 +663,7 @@ export default function AdminDashboardPage() {
                         settings: { ...data.settings, monogram: e.target.value }
                       })
                     }
-                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-[2px]"
+                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-xs"
                   />
                 </div>
 
@@ -680,7 +680,7 @@ export default function AdminDashboardPage() {
                         settings: { ...data.settings, tagline: e.target.value }
                       })
                     }
-                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-[2px]"
+                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-xs"
                   />
                 </div>
 
@@ -697,7 +697,7 @@ export default function AdminDashboardPage() {
                         settings: { ...data.settings, location: e.target.value }
                       })
                     }
-                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-[2px]"
+                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-xs"
                   />
                 </div>
 
@@ -715,7 +715,7 @@ export default function AdminDashboardPage() {
                           settings: { ...data.settings, accentColor: e.target.value }
                         })
                       }
-                      className="w-10 h-10 rounded-[2px] bg-black border border-white/20 cursor-pointer p-0.5"
+                      className="w-10 h-10 rounded-xs bg-black border border-white/20 cursor-pointer p-0.5"
                     />
                     <input
                       type="text"
@@ -726,7 +726,7 @@ export default function AdminDashboardPage() {
                           settings: { ...data.settings, accentColor: e.target.value }
                         })
                       }
-                      className="flex-1 bg-black border border-white/15 px-4 py-2.5 text-sm text-white font-mono focus:border-[#d4af37] rounded-[2px]"
+                      className="flex-1 bg-black border border-white/15 px-4 py-2.5 text-sm text-white font-mono focus:border-[#d4af37] rounded-xs"
                     />
                   </div>
                 </div>
@@ -770,7 +770,7 @@ export default function AdminDashboardPage() {
                         settings: { ...data.settings, contactEmail: e.target.value }
                       })
                     }
-                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-[2px]"
+                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-xs"
                   />
                 </div>
 
@@ -787,7 +787,7 @@ export default function AdminDashboardPage() {
                         settings: { ...data.settings, contactPhone: e.target.value }
                       })
                     }
-                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-[2px]"
+                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-xs"
                   />
                 </div>
 
@@ -804,7 +804,7 @@ export default function AdminDashboardPage() {
                         settings: { ...data.settings, bottomBarStatusText: e.target.value }
                       })
                     }
-                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-[2px]"
+                    className="w-full bg-black border border-white/15 px-4 py-2.5 text-sm text-white focus:border-[#d4af37] rounded-xs"
                   />
                 </div>
               </div>
@@ -838,7 +838,7 @@ export default function AdminDashboardPage() {
                       navigation: [...data.navigation, newItem]
                     });
                   }}
-                  className="px-4 py-2 bg-white text-black font-mono text-xs font-semibold uppercase tracking-wider rounded-[2px] hover:bg-[#d4af37] transition-colors flex items-center gap-1.5"
+                  className="px-4 py-2 bg-white text-black font-mono text-xs font-semibold uppercase tracking-wider rounded-xs hover:bg-[#d4af37] transition-colors flex items-center gap-1.5"
                 >
                   <Plus className="w-4 h-4" />
                   Add Link
@@ -851,7 +851,7 @@ export default function AdminDashboardPage() {
                   .map((item, index) => (
                     <div
                       key={item.id}
-                      className="p-4 bg-neutral-950 border border-white/10 rounded-[2px] flex flex-col md:flex-row items-center justify-between gap-4"
+                      className="p-4 bg-neutral-950 border border-white/10 rounded-xs flex flex-col md:flex-row items-center justify-between gap-4"
                     >
                       <div className="flex items-center gap-3 w-full md:w-auto">
                         <span className="font-mono text-xs text-neutral-500 w-6">
@@ -866,7 +866,7 @@ export default function AdminDashboardPage() {
                             );
                             setData({ ...data, navigation: updated });
                           }}
-                          className="bg-black border border-white/15 px-3 py-1.5 text-xs text-white font-mono rounded-[2px] uppercase w-40"
+                          className="bg-black border border-white/15 px-3 py-1.5 text-xs text-white font-mono rounded-xs uppercase w-40"
                         />
                         <input
                           type="text"
@@ -877,7 +877,7 @@ export default function AdminDashboardPage() {
                             );
                             setData({ ...data, navigation: updated });
                           }}
-                          className="bg-black border border-white/15 px-3 py-1.5 text-xs text-neutral-300 font-mono rounded-[2px] flex-1 md:w-64"
+                          className="bg-black border border-white/15 px-3 py-1.5 text-xs text-neutral-300 font-mono rounded-xs flex-1 md:w-64"
                         />
                       </div>
 
@@ -923,7 +923,7 @@ export default function AdminDashboardPage() {
                               navs[index - 1].order = temp;
                               setData({ ...data, navigation: navs });
                             }}
-                            className="p-1.5 bg-neutral-900 border border-white/10 rounded-[2px] hover:bg-neutral-800 disabled:opacity-30"
+                            className="p-1.5 bg-neutral-900 border border-white/10 rounded-xs hover:bg-neutral-800 disabled:opacity-30"
                           >
                             <ArrowUp className="w-3.5 h-3.5" />
                           </button>
@@ -936,7 +936,7 @@ export default function AdminDashboardPage() {
                               navs[index + 1].order = temp;
                               setData({ ...data, navigation: navs });
                             }}
-                            className="p-1.5 bg-neutral-900 border border-white/10 rounded-[2px] hover:bg-neutral-800 disabled:opacity-30"
+                            className="p-1.5 bg-neutral-900 border border-white/10 rounded-xs hover:bg-neutral-800 disabled:opacity-30"
                           >
                             <ArrowDown className="w-3.5 h-3.5" />
                           </button>
@@ -978,7 +978,7 @@ export default function AdminDashboardPage() {
                   .map((section, index) => (
                     <div
                       key={section.key}
-                      className="p-6 bg-neutral-950 border border-white/10 rounded-[2px] flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+                      className="p-6 bg-neutral-950 border border-white/10 rounded-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
                     >
                       <div className="space-y-1">
                         <div className="flex items-center gap-3">
@@ -1024,7 +1024,7 @@ export default function AdminDashboardPage() {
                               sects[index - 1].order = temp;
                               setData({ ...data, sections: sects });
                             }}
-                            className="p-2 bg-neutral-900 border border-white/10 rounded-[2px] hover:bg-neutral-800 disabled:opacity-30"
+                            className="p-2 bg-neutral-900 border border-white/10 rounded-xs hover:bg-neutral-800 disabled:opacity-30"
                           >
                             <ArrowUp className="w-4 h-4" />
                           </button>
@@ -1037,7 +1037,7 @@ export default function AdminDashboardPage() {
                               sects[index + 1].order = temp;
                               setData({ ...data, sections: sects });
                             }}
-                            className="p-2 bg-neutral-900 border border-white/10 rounded-[2px] hover:bg-neutral-800 disabled:opacity-30"
+                            className="p-2 bg-neutral-900 border border-white/10 rounded-xs hover:bg-neutral-800 disabled:opacity-30"
                           >
                             <ArrowDown className="w-4 h-4" />
                           </button>
@@ -1087,7 +1087,7 @@ export default function AdminDashboardPage() {
                     };
                     setEditingEvent(newEvent);
                   }}
-                  className="px-4 py-2 bg-[#d4af37] text-black font-mono text-xs font-semibold uppercase tracking-wider rounded-[2px] hover:bg-white transition-colors flex items-center gap-1.5"
+                  className="px-4 py-2 bg-[#d4af37] text-black font-mono text-xs font-semibold uppercase tracking-wider rounded-xs hover:bg-white transition-colors flex items-center gap-1.5"
                 >
                   <Plus className="w-4 h-4" />
                   Add Event Masterpiece
@@ -1099,7 +1099,7 @@ export default function AdminDashboardPage() {
                 {data.events.map((event) => (
                   <div
                     key={event.id}
-                    className="bg-neutral-950 border border-white/10 rounded-[2px] overflow-hidden flex flex-col justify-between group"
+                    className="bg-neutral-950 border border-white/10 rounded-xs overflow-hidden flex flex-col justify-between group"
                   >
                     <div className="relative h-48 w-full bg-neutral-900">
                       <img
@@ -1107,10 +1107,10 @@ export default function AdminDashboardPage() {
                         alt={event.title}
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute top-3 left-3 bg-black/80 px-2.5 py-1 text-[10px] font-mono uppercase text-[#d4af37] rounded-[2px]">
+                      <div className="absolute top-3 left-3 bg-black/80 px-2.5 py-1 text-[10px] font-mono uppercase text-[#d4af37] rounded-xs">
                         {event.category}
                       </div>
-                      <div className="absolute bottom-3 right-3 bg-black/80 px-2.5 py-1 text-[10px] font-mono text-white rounded-[2px]">
+                      <div className="absolute bottom-3 right-3 bg-black/80 px-2.5 py-1 text-[10px] font-mono text-white rounded-xs">
                         {event.year} · {event.location}
                       </div>
                     </div>
@@ -1134,7 +1134,7 @@ export default function AdminDashboardPage() {
                         <div className="flex items-center gap-2">
                           <button
                             onClick={() => setEditingEvent(event)}
-                            className="p-2 bg-neutral-900 hover:bg-white/10 text-white rounded-[2px] transition-colors"
+                            className="p-2 bg-neutral-900 hover:bg-white/10 text-white rounded-xs transition-colors"
                             title="Edit Event"
                           >
                             <Edit2 className="w-4 h-4" />
@@ -1149,7 +1149,7 @@ export default function AdminDashboardPage() {
                                 });
                               }
                             }}
-                            className="p-2 bg-neutral-900 hover:bg-red-950 text-neutral-400 hover:text-red-400 rounded-[2px] transition-colors"
+                            className="p-2 bg-neutral-900 hover:bg-red-950 text-neutral-400 hover:text-red-400 rounded-xs transition-colors"
                             title="Delete Event"
                           >
                             <Trash2 className="w-4 h-4" />
@@ -1164,7 +1164,7 @@ export default function AdminDashboardPage() {
               {/* Event Edit Modal */}
               {editingEvent && (
                 <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-6 overflow-y-auto">
-                  <div className="bg-[#0e0e0e] border border-white/20 p-8 rounded-[2px] w-full max-w-3xl max-h-[90vh] overflow-y-auto space-y-6">
+                  <div className="bg-[#0e0e0e] border border-white/20 p-8 rounded-xs w-full max-w-3xl max-h-[90vh] overflow-y-auto space-y-6">
                     <div className="flex items-center justify-between border-b border-white/10 pb-4">
                       <h3 className="font-sans text-xl text-white uppercase">
                         Edit Event Case Study
@@ -1188,7 +1188,7 @@ export default function AdminDashboardPage() {
                           onChange={(e) =>
                             setEditingEvent({ ...editingEvent, title: e.target.value })
                           }
-                          className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-[2px]"
+                          className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-xs"
                         />
                       </div>
 
@@ -1202,7 +1202,7 @@ export default function AdminDashboardPage() {
                           onChange={(e) =>
                             setEditingEvent({ ...editingEvent, category: e.target.value })
                           }
-                          className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-[2px]"
+                          className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-xs"
                         />
                       </div>
 
@@ -1216,7 +1216,7 @@ export default function AdminDashboardPage() {
                           onChange={(e) =>
                             setEditingEvent({ ...editingEvent, venue: e.target.value })
                           }
-                          className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-[2px]"
+                          className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-xs"
                         />
                       </div>
 
@@ -1230,7 +1230,7 @@ export default function AdminDashboardPage() {
                           onChange={(e) =>
                             setEditingEvent({ ...editingEvent, location: e.target.value })
                           }
-                          className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-[2px]"
+                          className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-xs"
                         />
                       </div>
 
@@ -1244,7 +1244,7 @@ export default function AdminDashboardPage() {
                           onChange={(e) =>
                             setEditingEvent({ ...editingEvent, guestCount: e.target.value })
                           }
-                          className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-[2px]"
+                          className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-xs"
                         />
                       </div>
 
@@ -1258,7 +1258,7 @@ export default function AdminDashboardPage() {
                           onChange={(e) =>
                             setEditingEvent({ ...editingEvent, budgetTier: e.target.value })
                           }
-                          className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-[2px]"
+                          className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-xs"
                         />
                       </div>
 
@@ -1295,7 +1295,7 @@ export default function AdminDashboardPage() {
                           onChange={(e) =>
                             setEditingEvent({ ...editingEvent, description: e.target.value })
                           }
-                          className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-[2px]"
+                          className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-xs"
                         />
                       </div>
                     </div>
@@ -1303,7 +1303,7 @@ export default function AdminDashboardPage() {
                     <div className="flex justify-end gap-3 pt-4 border-t border-white/10">
                       <button
                         onClick={() => setEditingEvent(null)}
-                        className="px-4 py-2 bg-neutral-900 text-xs font-mono text-neutral-300 rounded-[2px]"
+                        className="px-4 py-2 bg-neutral-900 text-xs font-mono text-neutral-300 rounded-xs"
                       >
                         Cancel
                       </button>
@@ -1319,7 +1319,7 @@ export default function AdminDashboardPage() {
                           setEditingEvent(null);
                           showToast('Event updated in staging.');
                         }}
-                        className="px-5 py-2 bg-[#d4af37] text-black font-mono text-xs font-bold rounded-[2px]"
+                        className="px-5 py-2 bg-[#d4af37] text-black font-mono text-xs font-bold rounded-xs"
                       >
                         Apply Changes
                       </button>
@@ -1359,7 +1359,7 @@ export default function AdminDashboardPage() {
                     };
                     setEditingService(newSrv);
                   }}
-                  className="px-4 py-2 bg-[#d4af37] text-black font-mono text-xs font-semibold uppercase tracking-wider rounded-[2px] hover:bg-white transition-colors flex items-center gap-1.5"
+                  className="px-4 py-2 bg-[#d4af37] text-black font-mono text-xs font-semibold uppercase tracking-wider rounded-xs hover:bg-white transition-colors flex items-center gap-1.5"
                 >
                   <Plus className="w-4 h-4" />
                   Add Service Package
@@ -1370,7 +1370,7 @@ export default function AdminDashboardPage() {
                 {data.services.map((service) => (
                   <div
                     key={service.id}
-                    className="p-6 bg-neutral-950 border border-white/10 rounded-[2px] flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+                    className="p-6 bg-neutral-950 border border-white/10 rounded-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
                   >
                     <div className="space-y-1">
                       <div className="flex items-center gap-3">
@@ -1396,7 +1396,7 @@ export default function AdminDashboardPage() {
 
                       <button
                         onClick={() => setEditingService(service)}
-                        className="p-2 bg-neutral-900 hover:bg-white/10 text-white rounded-[2px]"
+                        className="p-2 bg-neutral-900 hover:bg-white/10 text-white rounded-xs"
                       >
                         <Edit2 className="w-4 h-4" />
                       </button>
@@ -1410,7 +1410,7 @@ export default function AdminDashboardPage() {
                             });
                           }
                         }}
-                        className="p-2 bg-neutral-900 hover:bg-red-950 text-neutral-400 hover:text-red-400 rounded-[2px]"
+                        className="p-2 bg-neutral-900 hover:bg-red-950 text-neutral-400 hover:text-red-400 rounded-xs"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
@@ -1422,7 +1422,7 @@ export default function AdminDashboardPage() {
               {/* Service Edit Modal */}
               {editingService && (
                 <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-6 overflow-y-auto">
-                  <div className="bg-[#0e0e0e] border border-white/20 p-8 rounded-[2px] w-full max-w-2xl space-y-4">
+                  <div className="bg-[#0e0e0e] border border-white/20 p-8 rounded-xs w-full max-w-2xl space-y-4">
                     <div className="flex items-center justify-between border-b border-white/10 pb-4">
                       <h3 className="font-sans text-xl text-white uppercase">
                         Edit Planning Package
@@ -1445,7 +1445,7 @@ export default function AdminDashboardPage() {
                         onChange={(e) =>
                           setEditingService({ ...editingService, title: e.target.value })
                         }
-                        className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-[2px]"
+                        className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-xs"
                       />
                     </div>
 
@@ -1459,7 +1459,7 @@ export default function AdminDashboardPage() {
                         onChange={(e) =>
                           setEditingService({ ...editingService, tagline: e.target.value })
                         }
-                        className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-[2px]"
+                        className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-xs"
                       />
                     </div>
 
@@ -1473,7 +1473,7 @@ export default function AdminDashboardPage() {
                         onChange={(e) =>
                           setEditingService({ ...editingService, tierBadge: e.target.value })
                         }
-                        className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-[2px]"
+                        className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-xs"
                       />
                     </div>
 
@@ -1487,14 +1487,14 @@ export default function AdminDashboardPage() {
                         onChange={(e) =>
                           setEditingService({ ...editingService, investmentTier: e.target.value })
                         }
-                        className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-[2px]"
+                        className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-xs"
                       />
                     </div>
 
                     <div className="flex justify-end gap-3 pt-4 border-t border-white/10">
                       <button
                         onClick={() => setEditingService(null)}
-                        className="px-4 py-2 bg-neutral-900 text-xs font-mono text-neutral-300 rounded-[2px]"
+                        className="px-4 py-2 bg-neutral-900 text-xs font-mono text-neutral-300 rounded-xs"
                       >
                         Cancel
                       </button>
@@ -1510,7 +1510,7 @@ export default function AdminDashboardPage() {
                           setEditingService(null);
                           showToast('Service updated.');
                         }}
-                        className="px-5 py-2 bg-[#d4af37] text-black font-mono text-xs font-bold rounded-[2px]"
+                        className="px-5 py-2 bg-[#d4af37] text-black font-mono text-xs font-bold rounded-xs"
                       >
                         Apply Changes
                       </button>
@@ -1549,7 +1549,7 @@ export default function AdminDashboardPage() {
                     };
                     setEditingTestimonial(newTest);
                   }}
-                  className="px-4 py-2 bg-[#d4af37] text-black font-mono text-xs font-semibold uppercase tracking-wider rounded-[2px] hover:bg-white transition-colors flex items-center gap-1.5"
+                  className="px-4 py-2 bg-[#d4af37] text-black font-mono text-xs font-semibold uppercase tracking-wider rounded-xs hover:bg-white transition-colors flex items-center gap-1.5"
                 >
                   <Plus className="w-4 h-4" />
                   Add Review / Press
@@ -1560,7 +1560,7 @@ export default function AdminDashboardPage() {
                 {data.testimonials.map((t) => (
                   <div
                     key={t.id}
-                    className="p-6 bg-neutral-950 border border-white/10 rounded-[2px] flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+                    className="p-6 bg-neutral-950 border border-white/10 rounded-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
                   >
                     <div className="space-y-2">
                       <p className="font-serif text-base text-neutral-200 italic max-w-2xl">
@@ -1572,13 +1572,13 @@ export default function AdminDashboardPage() {
                     </div>
 
                     <div className="flex items-center gap-3">
-                      <span className="font-mono text-xs text-neutral-400 border border-white/10 px-2.5 py-1 rounded-[2px]">
+                      <span className="font-mono text-xs text-neutral-400 border border-white/10 px-2.5 py-1 rounded-xs">
                         {t.pressOutlet || 'Direct Client'}
                       </span>
 
                       <button
                         onClick={() => setEditingTestimonial(t)}
-                        className="p-2 bg-neutral-900 hover:bg-white/10 text-white rounded-[2px]"
+                        className="p-2 bg-neutral-900 hover:bg-white/10 text-white rounded-xs"
                         title="Edit Review"
                       >
                         <Edit2 className="w-4 h-4" />
@@ -1593,7 +1593,7 @@ export default function AdminDashboardPage() {
                             });
                           }
                         }}
-                        className="p-2 bg-neutral-900 hover:bg-red-950 text-neutral-400 hover:text-red-400 rounded-[2px]"
+                        className="p-2 bg-neutral-900 hover:bg-red-950 text-neutral-400 hover:text-red-400 rounded-xs"
                         title="Delete Review"
                       >
                         <Trash2 className="w-4 h-4" />
@@ -1606,7 +1606,7 @@ export default function AdminDashboardPage() {
               {/* Testimonial Edit Modal */}
               {editingTestimonial && (
                 <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-6 overflow-y-auto">
-                  <div className="bg-[#0e0e0e] border border-white/20 p-8 rounded-[2px] w-full max-w-2xl space-y-4">
+                  <div className="bg-[#0e0e0e] border border-white/20 p-8 rounded-xs w-full max-w-2xl space-y-4">
                     <div className="flex items-center justify-between border-b border-white/10 pb-4">
                       <h3 className="font-sans text-xl text-white uppercase">
                         Edit Client Review / Press Quote
@@ -1629,7 +1629,7 @@ export default function AdminDashboardPage() {
                         onChange={(e) =>
                           setEditingTestimonial({ ...editingTestimonial, clientName: e.target.value })
                         }
-                        className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-[2px]"
+                        className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-xs"
                       />
                     </div>
 
@@ -1644,7 +1644,7 @@ export default function AdminDashboardPage() {
                           setEditingTestimonial({ ...editingTestimonial, pressOutlet: e.target.value })
                         }
                         placeholder="e.g. Vogue Weddings / Architectural Digest"
-                        className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-[2px]"
+                        className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-xs"
                       />
                     </div>
 
@@ -1658,7 +1658,7 @@ export default function AdminDashboardPage() {
                         onChange={(e) =>
                           setEditingTestimonial({ ...editingTestimonial, quote: e.target.value })
                         }
-                        className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-[2px]"
+                        className="w-full bg-black border border-white/15 px-3 py-2 text-xs text-white rounded-xs"
                       />
                     </div>
 
@@ -1674,7 +1674,7 @@ export default function AdminDashboardPage() {
                     <div className="flex justify-end gap-3 pt-4 border-t border-white/10">
                       <button
                         onClick={() => setEditingTestimonial(null)}
-                        className="px-4 py-2 bg-neutral-900 text-xs font-mono text-neutral-300 rounded-[2px]"
+                        className="px-4 py-2 bg-neutral-900 text-xs font-mono text-neutral-300 rounded-xs"
                       >
                         Cancel
                       </button>
@@ -1690,7 +1690,7 @@ export default function AdminDashboardPage() {
                           setEditingTestimonial(null);
                           showToast('Review updated in staging.');
                         }}
-                        className="px-5 py-2 bg-[#d4af37] text-black font-mono text-xs font-bold rounded-[2px]"
+                        className="px-5 py-2 bg-[#d4af37] text-black font-mono text-xs font-bold rounded-xs"
                       >
                         Apply Changes
                       </button>
@@ -1718,7 +1718,7 @@ export default function AdminDashboardPage() {
                   {data.inquiries.map((inq) => (
                     <div
                       key={inq.id}
-                      className="p-6 bg-neutral-950 border border-white/15 rounded-[2px] space-y-4"
+                      className="p-6 bg-neutral-950 border border-white/15 rounded-xs space-y-4"
                     >
                       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
                         <div>
@@ -1744,7 +1744,7 @@ export default function AdminDashboardPage() {
                               setData({ ...data, inquiries: updated });
                               showToast(`Lead status updated to ${e.target.value}`);
                             }}
-                            className="bg-black border border-white/20 text-xs font-mono text-white px-3 py-1.5 rounded-[2px]"
+                            className="bg-black border border-white/20 text-xs font-mono text-white px-3 py-1.5 rounded-xs"
                           >
                             <option value="new">🟢 New Commission</option>
                             <option value="reviewing">🟡 Under Review</option>
@@ -1777,7 +1777,7 @@ export default function AdminDashboardPage() {
 
                       {/* Vision Note */}
                       {inq.visionNotes && (
-                        <div className="p-4 bg-black/60 border border-white/10 rounded-[2px]">
+                        <div className="p-4 bg-black/60 border border-white/10 rounded-xs">
                           <div className="font-mono text-[10px] text-neutral-400 uppercase mb-1">
                             Client Vision &amp; Spatial Aspirations:
                           </div>
@@ -1790,7 +1790,7 @@ export default function AdminDashboardPage() {
                   ))}
                 </div>
               ) : (
-                <div className="p-12 text-center bg-neutral-950 border border-white/10 rounded-[2px]">
+                <div className="p-12 text-center bg-neutral-950 border border-white/10 rounded-xs">
                   <Inbox className="w-12 h-12 text-neutral-600 mx-auto mb-4" />
                   <h3 className="font-sans text-lg text-white">No inquiries received yet</h3>
                   <p className="font-serif text-sm text-neutral-400 mt-1">
@@ -1817,11 +1817,11 @@ export default function AdminDashboardPage() {
               </div>
 
               {/* Live Connection Card */}
-              <div className="bg-neutral-950 border border-white/15 p-6 md:p-8 rounded-[2px] space-y-6">
+              <div className="bg-neutral-950 border border-white/15 p-6 md:p-8 rounded-xs space-y-6">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-white/10">
                   <div className="flex items-center gap-4">
                     <div
-                      className={`w-12 h-12 rounded-[2px] flex items-center justify-center font-bold text-lg ${
+                      className={`w-12 h-12 rounded-xs flex items-center justify-center font-bold text-lg ${
                         supabaseStatus?.connected
                           ? 'bg-[#3ecf8e]/20 text-[#3ecf8e] border border-[#3ecf8e]/40'
                           : supabaseStatus?.isConfigured
@@ -1837,7 +1837,7 @@ export default function AdminDashboardPage() {
                           Cloud Backend Status
                         </h3>
                         <span
-                          className={`font-mono text-[10px] px-2.5 py-0.5 rounded-[2px] uppercase font-bold ${
+                          className={`font-mono text-[10px] px-2.5 py-0.5 rounded-xs uppercase font-bold ${
                             supabaseStatus?.connected
                               ? 'bg-[#3ecf8e]/20 text-[#3ecf8e] border border-[#3ecf8e]/40'
                               : supabaseStatus?.isConfigured
@@ -1862,7 +1862,7 @@ export default function AdminDashboardPage() {
                   <div className="flex flex-wrap items-center gap-3">
                     <button
                       onClick={checkSupabaseStatus}
-                      className="px-4 py-2 bg-neutral-900 hover:bg-neutral-800 border border-white/15 font-mono text-xs text-white rounded-[2px] flex items-center gap-2 transition-colors"
+                      className="px-4 py-2 bg-neutral-900 hover:bg-neutral-800 border border-white/15 font-mono text-xs text-white rounded-xs flex items-center gap-2 transition-colors"
                     >
                       <RefreshCw className="w-3.5 h-3.5" />
                       <span>Test Connection</span>
@@ -1871,7 +1871,7 @@ export default function AdminDashboardPage() {
                     <button
                       onClick={handleSyncToSupabase}
                       disabled={syncingSupabase || !supabaseStatus?.connected}
-                      className="px-5 py-2 bg-[#3ecf8e] hover:bg-white text-black font-mono text-xs font-bold uppercase tracking-wider rounded-[2px] flex items-center gap-2 transition-colors shadow-lg shadow-[#3ecf8e]/20 disabled:opacity-40"
+                      className="px-5 py-2 bg-[#3ecf8e] hover:bg-white text-black font-mono text-xs font-bold uppercase tracking-wider rounded-xs flex items-center gap-2 transition-colors shadow-lg shadow-[#3ecf8e]/20 disabled:opacity-40"
                     >
                       {syncingSupabase ? (
                         <RefreshCw className="w-3.5 h-3.5 animate-spin" />
@@ -1885,7 +1885,7 @@ export default function AdminDashboardPage() {
 
                 {/* Technical Architecture Info */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="p-4 bg-black/60 border border-white/10 rounded-[2px]">
+                  <div className="p-4 bg-black/60 border border-white/10 rounded-xs">
                     <div className="font-mono text-[10px] text-neutral-400 uppercase tracking-widest">
                       Database Tables
                     </div>
@@ -1897,7 +1897,7 @@ export default function AdminDashboardPage() {
                     </div>
                   </div>
 
-                  <div className="p-4 bg-black/60 border border-white/10 rounded-[2px]">
+                  <div className="p-4 bg-black/60 border border-white/10 rounded-xs">
                     <div className="font-mono text-[10px] text-neutral-400 uppercase tracking-widest">
                       Storage Bucket
                     </div>
@@ -1909,7 +1909,7 @@ export default function AdminDashboardPage() {
                     </div>
                   </div>
 
-                  <div className="p-4 bg-black/60 border border-white/10 rounded-[2px]">
+                  <div className="p-4 bg-black/60 border border-white/10 rounded-xs">
                     <div className="font-mono text-[10px] text-neutral-400 uppercase tracking-widest">
                       Real-time Dynamic Sync
                     </div>
@@ -1924,7 +1924,7 @@ export default function AdminDashboardPage() {
               </div>
 
               {/* Setup & Environment Guide */}
-              <div className="bg-neutral-950 border border-white/15 p-6 md:p-8 rounded-[2px] space-y-6">
+              <div className="bg-neutral-950 border border-white/15 p-6 md:p-8 rounded-xs space-y-6">
                 <div>
                   <h3 className="font-sans text-xl font-light text-white uppercase tracking-tight">
                     Supabase Configuration &amp; Credentials
@@ -1934,14 +1934,14 @@ export default function AdminDashboardPage() {
                   </p>
                 </div>
 
-                <div className="p-4 bg-black border border-white/10 rounded-[2px] font-mono text-xs text-neutral-300 space-y-2 overflow-x-auto">
+                <div className="p-4 bg-black border border-white/10 rounded-xs font-mono text-xs text-neutral-300 space-y-2 overflow-x-auto">
                   <div className="text-neutral-500"># .env.local</div>
                   <div><span className="text-[#3ecf8e]">NEXT_PUBLIC_SUPABASE_URL</span>=https://your-project.supabase.co</div>
                   <div><span className="text-[#3ecf8e]">NEXT_PUBLIC_SUPABASE_ANON_KEY</span>=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</div>
                   <div><span className="text-[#3ecf8e]">SUPABASE_SERVICE_ROLE_KEY</span>=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9... <span className="text-neutral-500">(Optional for admin bypass)</span></div>
                 </div>
 
-                <div className="p-4 bg-black/40 border border-white/10 rounded-[2px] space-y-3">
+                <div className="p-4 bg-black/40 border border-white/10 rounded-xs space-y-3">
                   <div className="flex items-center gap-2 font-mono text-xs text-white uppercase tracking-wider">
                     <Key className="w-4 h-4 text-[#d4af37]" />
                     <span>Database Schema Migration File</span>
