@@ -287,7 +287,7 @@ export function UnifiedStageFlow({ initialData }: UnifiedStageFlowProps) {
         {/* Right CTA / Admin Links */}
         <div className="flex items-center gap-1.5 sm:gap-3">
           <Link
-            href="https://wa.me/2348038882026?text=Hello%20Zara%20Okonjo%20Atelier,%20I%20would%20like%20to%20inquire%20about%20a%20luxury%20event%20commission."
+            href="https://wa.me/2348038882026?text=Hello%20Tare%20Precious%20Atelier,%20I%20would%20like%20to%20inquire%20about%20a%20luxury%20event%20commission."
             target="_blank"
             className="hidden sm:flex items-center gap-1.5 px-3 py-1 sm:py-1.5 rounded-[22.5px] border border-[#ffedd7]/30 text-[10px] sm:text-[11px] tracking-wider uppercase text-[#ffedd7] hover:border-[#ffedd7] hover:bg-[#382416]/30 transition-all"
           >
@@ -831,7 +831,7 @@ export function UnifiedStageFlow({ initialData }: UnifiedStageFlowProps) {
 
               <div className="flex flex-col xs:flex-row gap-2 pt-1">
                 <Link
-                  href="https://wa.me/2348038882026?text=Hello%20Zara%20Okonjo%20Atelier,%20I%20would%20like%20to%20reserve%20a%20private%20commission."
+                  href="https://wa.me/2348038882026?text=Hello%20Tare%20Precious%20Atelier,%20I%20would%20like%20to%20reserve%20a%20private%20commission."
                   target="_blank"
                   className="flex-1 py-2 sm:py-2.5 rounded-[36px] bg-[#25D366]/20 border border-[#25D366]/50 text-[10px] sm:text-xs uppercase tracking-[0.16em] font-semibold text-[#25D366] hover:bg-[#25D366]/30 transition-all flex items-center justify-center gap-2"
                 >

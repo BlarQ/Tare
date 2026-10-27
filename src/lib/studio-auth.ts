@@ -8,7 +8,7 @@ export function accessCode() {
 }
 
 export function studioToken() {
-  return createHash('sha256').update(`zara-atelier:${accessCode()}`).digest('hex');
+  return createHash('sha256').update(`tare-atelier:${accessCode()}`).digest('hex');
 }
 
 export function isStudioAuthorized(request: NextRequest) {

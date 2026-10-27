@@ -17,10 +17,10 @@ export const initialCmsData: CmsDatabase = {
     fontSerif: 'Halyard Display',
     fontSans: 'Inter',
     socialLinks: {
-      instagram: 'https://instagram.com/zaraokonjo.events',
-      pinterest: 'https://pinterest.com/zaraokonjo',
-      linkedin: 'https://linkedin.com/in/zara-okonjo',
-      vimeo: 'https://vimeo.com/zaraokonjo',
+      instagram: 'https://instagram.com/tareprecious.events',
+      pinterest: 'https://pinterest.com/tareprecious',
+      linkedin: 'https://linkedin.com/in/tare-precious',
+      vimeo: 'https://vimeo.com/tareprecious',
     },
     contactEmail: 'tareprecious5122@gmail.com',
     contactPhone: '+234 9020 804 049',
@@ -192,7 +192,7 @@ export const initialCmsData: CmsDatabase = {
         { role: 'Sound & Symphonics', name: 'Lagos Philharmonic & The Cavemen Live' }
       ],
       clientQuote: {
-        quote: 'Zara turned our 3-day wedding into an imperial sovereign dream. Guests flew in from London, New York, and Geneva and are still talking about the sheer majesty of the ocean glasshouse.',
+        quote: 'Tare turned our 3-day wedding into an imperial sovereign dream. Guests flew in from London, New York, and Geneva and are still talking about the sheer majesty of the ocean glasshouse.',
         author: 'Chief & Dr. (Mrs.) O. Adeleke'
       },
       isFeatured: true,
@@ -229,7 +229,7 @@ export const initialCmsData: CmsDatabase = {
         { role: 'Lighting Architecture', name: 'Lumière Africa & UK' }
       ],
       clientQuote: {
-        quote: 'The photometric 3D simulator Zara presented to the State Protocol team gave us 100% confidence. Execution was immaculate to the second.',
+        quote: 'The photometric 3D simulator Tare presented to the State Protocol team gave us 100% confidence. Execution was immaculate to the second.',
         author: 'Ambassador K. Danjuma'
       },
       isFeatured: true,
@@ -263,7 +263,7 @@ export const initialCmsData: CmsDatabase = {
         { role: 'Executive Direction', name: 'Tare Precious' }
       ],
       clientQuote: {
-        quote: 'Zara redefined luxury entertaining on Banana Island. The floating pontoon took everybody by surprise.',
+        quote: 'Tare redefined luxury entertaining on Banana Island. The floating pontoon took everybody by surprise.',
         author: 'F. Alakija, Host'
       },
       isFeatured: true,
@@ -332,7 +332,7 @@ export const initialCmsData: CmsDatabase = {
       title: 'IMPERIAL NUPTIALS & 3-DAY CELEBRATIONS',
       tagline: 'Complete 360-degree planning, traditional engagement & white wedding direction.',
       tierBadge: 'SIGNATURE SERVICE',
-      description: 'Zara personally oversees all facets: multi-day guest hospitality, custom 3D WebGL pre-visualization, traditional royal protocol, 50,000-stem floral couture, top Nigerian & international culinary brigades, and turnkey on-site production.',
+      description: 'Tare personally oversees all facets: multi-day guest hospitality, custom 3D WebGL pre-visualization, traditional royal protocol, 50,000-stem floral couture, top Nigerian & international culinary brigades, and turnkey on-site production.',
       deliverables: [
         'Dedicated 24/7 VIP Concierge & Master Protocol Team',
         '3D Real-Time Spatial Modeling & Photometric Simulation',
@@ -350,7 +350,7 @@ export const initialCmsData: CmsDatabase = {
       title: 'SPATIAL SCENOGRAPHY & LIGHTING ARCHITECTURE',
       tagline: 'Transformative structural builds, botanical architecture, and lighting design.',
       tierBadge: 'DESIGN & PRODUCTION',
-      description: 'For clients and brands with logistics handled who require Zara\'s architectural mastery to build jaw-dropping custom pavilions, monolithic mirrored banquets, and volumetric light shows.',
+      description: 'For clients and brands with logistics handled who require Tare\'s architectural mastery to build jaw-dropping custom pavilions, monolithic mirrored banquets, and volumetric light shows.',
       deliverables: [
         'Architectural Spatial Blueprints & 3D Lighting Decks',
         'Master Botanical & Floral Haute Couture Direction',
@@ -383,7 +383,7 @@ export const initialCmsData: CmsDatabase = {
   testimonials: [
     {
       id: 't-1',
-      quote: 'Zara did not just plan our 3-day Eko Atlantic wedding; she orchestrated an imperial sovereign wonderland that royalty and global dignitaries still reminisce about. Every detail was otherworldly.',
+      quote: 'Tare did not just plan our 3-day Eko Atlantic wedding; she orchestrated an imperial sovereign wonderland that royalty and global dignitaries still reminisce about. Every detail was otherworldly.',
       clientName: 'Chief & Dr. (Mrs.) O. Adeleke',
       eventTitle: 'Eko Atlantic Imperial Nuptials',
       location: 'Lagos, Nigeria',
@@ -395,7 +395,7 @@ export const initialCmsData: CmsDatabase = {
     },
     {
       id: 't-2',
-      quote: 'The 3D spatial simulation Zara generated beforehand was millimeter-exact to the real Presidential Gala build in Abuja. Her production discipline is the highest on the African continent.',
+      quote: 'The 3D spatial simulation Tare generated beforehand was millimeter-exact to the real Presidential Gala build in Abuja. Her production discipline is the highest on the African continent.',
       clientName: 'Ambassador K. Danjuma',
       eventTitle: 'Presidential Inaugural Committee',
       location: 'Abuja, Nigeria',

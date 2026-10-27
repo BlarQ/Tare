@@ -29,6 +29,21 @@ export function isSupabaseConfigured(): boolean {
   );
 }
 
+function normalizeLegacyName<T>(value: T): T {
+  if (typeof value === 'string') {
+    return value.replace(/\bZara\b/gi, 'Tare') as T;
+  }
+  if (Array.isArray(value)) {
+    return value.map((item) => normalizeLegacyName(item)) as T;
+  }
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(
+      Object.entries(value).map(([key, item]) => [key, normalizeLegacyName(item)])
+    ) as T;
+  }
+  return value;
+}
+
 // Test live Supabase connectivity
 export async function testSupabaseConnection(): Promise<{ ok: boolean; message: string }> {
   if (!isSupabaseConfigured()) {
@@ -192,14 +207,14 @@ export async function fetchCmsFromSupabase(): Promise<CmsDatabase | null> {
     // Older seeded records were created for a different portfolio identity.
     // Treat that dataset as stale so the public site and studio use the same
     // local Tare baseline until the owner saves/synchronizes the current data.
-    const legacyIdentity = /zara|aurelia/i.test(
+    const legacyIdentity = !/tare/i.test(
       `${settings.brandName} ${settings.planner?.fullName || ''}`
     );
     if (legacyIdentity) {
       return getCmsDatabase();
     }
 
-    return remoteDatabase;
+    return normalizeLegacyName(remoteDatabase);
   } catch (error) {
     console.warn('Could not fetch CMS data from Supabase:', error);
     return null;

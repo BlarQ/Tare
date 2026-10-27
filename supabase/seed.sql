@@ -23,8 +23,8 @@ INSERT INTO public.site_settings (
     '#100904',
     'Halyard Display',
     'Inter',
-    '{"instagram": "https://instagram.com/zaraokonjo.events", "pinterest": "https://pinterest.com/zaraokonjo", "linkedin": "https://linkedin.com/in/zara-okonjo"}'::jsonb,
-    'concierge@zaraokonjo.com',
+    '{"instagram": "https://instagram.com/tareprecious.events", "pinterest": "https://pinterest.com/tareprecious", "linkedin": "https://linkedin.com/in/tare-precious"}'::jsonb,
+    'tareprecious5122@gmail.com',
     '+234 (0) 803 888 2026',
     'CURRENTLY ACCEPTING 2026/2027 COMMISSIONS',
     '© 2026 Tare Precious. ALL RIGHTS RESERVED.'
@@ -87,7 +87,7 @@ INSERT INTO public.event_projects (
     'A 3-day royal union celebrated in a custom-built 4,000-square-meter cantilevered glass pavilion extending over the Atlantic shoreline. Featuring 50,000 cascading Dutch white calla lilies and Phalaenopsis orchids, 24k gold leaf royal banquets, a 9-tier kinetic crystal chandelier, and live orchestral performances by a 70-piece symphonic ensemble.',
     ARRAY['Custom 4,000 sqm Cantilevered Oceanfront Glass Pavilion', '50,000-Stem Cascading White Orchid & Floral Architecture', '9-Tier Central Kinetic Crystal Chandelier Array', 'Traditional Yoruba Alaga & White Wedding Direction', 'Helicopter & Motorcade VIP Convoy Logistics'],
     '[{"role": "Event Planning & Delivery", "name": "Tare Precious"}, {"role": "Floral Haute Couture", "name": "Maison Florale Lagos"}]'::jsonb,
-    '{"quote": "Zara turned our 3-day wedding into an imperial sovereign dream. Guests flew in from London, New York, and Geneva and are still talking about the sheer majesty of the ocean glasshouse.", "author": "Chief & Dr. (Mrs.) O. Adeleke"}'::jsonb,
+    '{"quote": "Tare turned our 3-day wedding into an imperial sovereign dream. Guests flew in from London, New York, and Geneva and are still talking about the sheer majesty of the ocean glasshouse.", "author": "Chief & Dr. (Mrs.) O. Adeleke"}'::jsonb,
     true,
     1
 ),
@@ -107,7 +107,7 @@ INSERT INTO public.event_projects (
     'A transformative state gala hosting visiting heads of state and diplomats. The banqueting hall was cloaked in a golden savannah canopy with 360-degree immersive architectural projection mapping and 180-meter continuous brass banquet tables.',
     ARRAY['180-Meter Solid Nigerian Brass Mirrored Banquets', 'Architectural 360° Synchronized Projection Canopy', 'Diplomatic Head-of-State Protocol Coordination', 'Curated Pan-African 7-Course Haute Cuisine'],
     '[{"role": "Event Planner & Delivery Lead", "name": "Tare Precious"}]'::jsonb,
-    '{"quote": "The photometric 3D simulator Zara presented to the State Protocol team gave us 100% confidence. Execution was immaculate to the second.", "author": "Ambassador K. Danjuma"}'::jsonb,
+    '{"quote": "The photometric 3D simulator Tare presented to the State Protocol team gave us 100% confidence. Execution was immaculate to the second.", "author": "Ambassador K. Danjuma"}'::jsonb,
     true,
     2
 ),
@@ -127,7 +127,7 @@ INSERT INTO public.event_projects (
     'A 50th birthday celebration for a Nigerian oil & technology magnate. We engineered a 3-tier floating pontoon over Lagos Lagoon featuring an illuminated Dom Pérignon champagne fountain and a synchronized 400-drone aerial light show over the water.',
     ARRAY['3-Tier Engineered Waterfront Floating Pontoon', '400-Drone Synchronized Lagoon Light Choreography', 'Vintage Dom Pérignon Vault & Beluga Caviar Bar'],
     '[{"role": "Executive Direction", "name": "Tare Precious"}]'::jsonb,
-    '{"quote": "Zara redefined luxury entertaining on Banana Island. The floating pontoon took everybody by surprise.", "author": "F. Alakija, Host"}'::jsonb,
+    '{"quote": "Tare redefined luxury entertaining on Banana Island. The floating pontoon took everybody by surprise.", "author": "F. Alakija, Host"}'::jsonb,
     true,
     3
 )
@@ -145,7 +145,7 @@ INSERT INTO public.service_packages (
     'IMPERIAL NUPTIALS & 3-DAY CELEBRATIONS',
     'Complete 360-degree planning, traditional engagement & white wedding direction.',
     'SIGNATURE SERVICE',
-    'Zara personally oversees all facets: multi-day guest hospitality, custom 3D WebGL pre-visualization, traditional royal protocol, 50,000-stem floral couture, top Nigerian & international culinary brigades, and turnkey on-site production.',
+    'Tare personally oversees all facets: multi-day guest hospitality, custom 3D WebGL pre-visualization, traditional royal protocol, 50,000-stem floral couture, top Nigerian & international culinary brigades, and turnkey on-site production.',
     ARRAY['Dedicated 24/7 VIP Concierge & Master Protocol Team', '3D Real-Time Spatial Modeling & Photometric Simulation', 'Curated International & Nigerian Luxury Vendors', 'Full Day-of On-Site Production Team (30+ Senior Staff)'],
     '8 — 16 Months in Advance',
     'Full Planning from ₦45,000,000 / $50,000',
@@ -157,7 +157,7 @@ INSERT INTO public.service_packages (
     'SPATIAL SCENOGRAPHY & LIGHTING ARCHITECTURE',
     'Transformative structural builds, botanical architecture, and lighting design.',
     'DESIGN & PRODUCTION',
-    'For clients and brands with logistics handled who require Zara architectural mastery to build custom pavilions, monolithic mirrored banquets, and volumetric light shows.',
+    'For clients and brands with logistics handled who require Tare architectural mastery to build custom pavilions, monolithic mirrored banquets, and volumetric light shows.',
     ARRAY['Architectural Spatial Blueprints & 3D Lighting Decks', 'Master Botanical & Floral Haute Couture Direction', 'Custom Monogram Tableware & African Brass Accents'],
     '4 — 8 Months in Advance',
     'Scenography Direction from ₦25,000,000 / $30,000',

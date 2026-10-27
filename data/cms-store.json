@@ -4,7 +4,7 @@
     "monogram": "TP",
     "tagline": "MASTER SCENOGRAPHER & LUXURY EVENT ARCHITECT",
     "shortBio": "Strategic event planning and delivery for corporate, executive, international, and large-scale experiences.",
-    "location": "FESTAC TOWN, LAGOS, NIGERIA",
+    "location": "Victoria Island, Lagos · Abuja · London · Dubai",
     "logoLight": "",
     "logoDark": "",
     "themePreset": "darkroom_walnut",
@@ -20,11 +20,11 @@
     "bottomBarStatusText": "CURRENTLY ACCEPTING 2026/2027 COMMISSIONS",
     "footerCopyright": "© 2026 Tare Precious. ALL RIGHTS RESERVED.",
     "planner": {
-      "fullName": "Tare Precious James",
+      "fullName": "Tare Precious",
       "title": "Event Planner & Delivery Lead",
       "tagline": "From brief to live experience.",
       "portraitImage": "https://bfmprhxzoihkatkphdel.supabase.co/storage/v1/object/public/cms-assets/uploads/ChatGPT_Image_Sep_6__2026_at_03_29_30_PM_1790546582287_qhq21.png",
-      "curatorBio": "Tare Precious James is an event planning and delivery professional who brings structure, calm, and considered detail to complex live experiences. From corporate milestones and executive dinners to international leadership programmes, Tare owns the journey from first brief to final delivery.",
+      "curatorBio": "Tare Precious James is an event planning and delivery professional who brings structure, calm, and considered detail to complex live experiences across corporate, executive, international, and large-scale events.",
       "philosophyStatement": "The best events feel effortless because every moving part has been aligned, planned, coordinated, and delivered with intention.",
       "signatureStyle": "Clear strategy, disciplined production, thoughtful logistics, and an excellent guest experience.",
       "experienceYears": 5,
@@ -127,7 +127,7 @@
       "title": "IMPERIAL NUPTIALS & 3-DAY CELEBRATIONS",
       "tagline": "Complete 360-degree planning, traditional engagement & white wedding direction.",
       "tierBadge": "SIGNATURE SERVICE",
-      "description": "Zara personally oversees all facets: multi-day guest hospitality, custom 3D WebGL pre-visualization, traditional royal protocol, 50,000-stem floral couture, top Nigerian & international culinary brigades, and turnkey on-site production.",
+      "description": "Tare personally oversees all facets: multi-day guest hospitality, custom 3D WebGL pre-visualization, traditional royal protocol, 50,000-stem floral couture, top Nigerian & international culinary brigades, and turnkey on-site production.",
       "deliverables": [
         "Dedicated 24/7 VIP Concierge & Master Protocol Team",
         "3D Real-Time Spatial Modeling & Photometric Simulation",
@@ -159,7 +159,7 @@
       "title": "SPATIAL SCENOGRAPHY & LIGHTING ARCHITECTURE",
       "tagline": "Transformative structural builds, botanical architecture, and lighting design.",
       "tierBadge": "DESIGN & PRODUCTION",
-      "description": "For clients and brands with logistics handled who require Zara architectural mastery to build custom pavilions, monolithic mirrored banquets, and volumetric light shows.",
+      "description": "For clients and brands with logistics handled who require Tare architectural mastery to build custom pavilions, monolithic mirrored banquets, and volumetric light shows.",
       "deliverables": [
         "Architectural Spatial Blueprints & 3D Lighting Decks",
         "Master Botanical & Floral Haute Couture Direction",
@@ -273,6 +273,20 @@
       "visionNotes": "My Wedding coming up by December!",
       "status": "new",
       "createdAt": "2026-10-27T16:03:51.616+00:00"
+    },
+    {
+      "id": "inq-1",
+      "clientName": "Senator T. Briggs & Family",
+      "email": "t.briggs@briggsgroup.ng",
+      "phone": "+234 802 333 4455",
+      "eventType": "Imperial Nuptials (3-Day)",
+      "estimatedDate": "2026-11-20",
+      "location": "Eko Atlantic, Lagos & Port Harcourt",
+      "guestCount": "1,200 VIPs",
+      "budgetRange": "₦250M — ₦400M",
+      "visionNotes": "Seeking custom floating ocean marquee with gold monolith banquets and live highlife/classical fusion.",
+      "status": "reviewing",
+      "createdAt": "2026-10-27T15:06:29.282204+00:00"
     }
   ]
 }
