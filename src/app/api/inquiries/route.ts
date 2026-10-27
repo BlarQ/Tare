@@ -11,7 +11,13 @@ export async function GET(req: NextRequest) {
       if (client) {
         const { data, error } = await client.from('vip_inquiries').select('*').order('created_at', { ascending: false });
         if (!error && data) {
-          const formatted = data.map((i: Record<string, string | null>) => ({
+          const formatted = data
+            .filter((i: Record<string, string | null>) => !(
+              i.id === 'inq-1' ||
+              i.email === 't.briggs@briggsgroup.ng' ||
+              i.client_name === 'Senator T. Briggs & Family'
+            ))
+            .map((i: Record<string, string | null>) => ({
             id: i.id,
             clientName: i.client_name,
             email: i.email,
@@ -24,7 +30,7 @@ export async function GET(req: NextRequest) {
             visionNotes: i.vision_notes,
             status: i.status || 'reviewing',
             createdAt: i.created_at,
-          }));
+            }));
           return NextResponse.json({ success: true, inquiries: formatted, source: 'supabase' });
         }
       }

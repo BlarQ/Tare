@@ -32,7 +32,12 @@
       "countriesWorked": 11,
       "satisfactionRate": "100% Bespoke",
       "milestones": [],
-      "specialties": ["Corporate Events", "Executive Experiences", "International Delivery", "Large-Scale Programmes"]
+      "specialties": [
+        "Corporate Events",
+        "Executive Experiences",
+        "International Delivery",
+        "Large-Scale Programmes"
+      ]
     }
   },
   "navigation": [],

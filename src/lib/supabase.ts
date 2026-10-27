@@ -1,5 +1,6 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import { CmsDatabase, SiteSettings, PlannerProfile, EventProject, ServicePackage, Testimonial, VIPInquiry } from '@/types/cms';
+import { getCmsDatabase } from '@/lib/cms-store';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
@@ -178,7 +179,7 @@ export async function fetchCmsFromSupabase(): Promise<CmsDatabase | null> {
       createdAt: i.created_at,
     }));
 
-    return {
+    const remoteDatabase: CmsDatabase = {
       settings,
       navigation: (navRes.data && navRes.data.length > 0) ? navRes.data : [],
       sections: (sectionsRes.data && sectionsRes.data.length > 0) ? sectionsRes.data : [],
@@ -187,6 +188,18 @@ export async function fetchCmsFromSupabase(): Promise<CmsDatabase | null> {
       testimonials,
       inquiries,
     };
+
+    // Older seeded records were created for a different portfolio identity.
+    // Treat that dataset as stale so the public site and studio use the same
+    // local Tare baseline until the owner saves/synchronizes the current data.
+    const legacyIdentity = /zara|aurelia/i.test(
+      `${settings.brandName} ${settings.planner?.fullName || ''}`
+    );
+    if (legacyIdentity) {
+      return getCmsDatabase();
+    }
+
+    return remoteDatabase;
   } catch (error) {
     console.warn('Could not fetch CMS data from Supabase:', error);
     return null;

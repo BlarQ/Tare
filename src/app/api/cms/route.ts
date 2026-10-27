@@ -25,6 +25,9 @@ export async function GET() {
       if (supabaseData) {
         if (!supabaseData.events.length) supabaseData.events = tarePortfolioContent.events as typeof supabaseData.events;
         if (!supabaseData.services.length) supabaseData.services = tarePortfolioContent.services as typeof supabaseData.services;
+        // Cache the same dataset used by future CMS mutations so a later save
+        // cannot overwrite cloud content with an older local snapshot.
+        saveCmsDatabase(supabaseData);
         return NextResponse.json({ success: true, data: supabaseData, source: 'supabase' });
       }
     }
@@ -43,28 +46,38 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const { action, payload } = body;
 
+    // Hydrate the local mutation store from the current cloud dataset first.
+    // The individual store helpers mutate local data, after which the full
+    // updated dataset is written back to Supabase.
+    if (isSupabaseConfigured()) {
+      const remote = await fetchCmsFromSupabase();
+      if (remote) saveCmsDatabase(remote);
+    }
+
     switch (action) {
       case 'update_settings': {
         const updated = updateSettings(payload);
         if (isSupabaseConfigured()) {
           const current = getCmsDatabase();
-          saveCmsToSupabase(current);
+          await saveCmsToSupabase(current);
         }
         return NextResponse.json({ success: true, data: updated });
       }
       case 'update_navigation': {
         const updated = updateNavigation(payload);
+        if (isSupabaseConfigured()) await saveCmsToSupabase(getCmsDatabase());
         return NextResponse.json({ success: true, data: updated });
       }
       case 'update_sections': {
         const updated = updateSections(payload);
+        if (isSupabaseConfigured()) await saveCmsToSupabase(getCmsDatabase());
         return NextResponse.json({ success: true, data: updated });
       }
       case 'save_event': {
         const updated = saveEventProject(payload);
         if (isSupabaseConfigured()) {
           const current = getCmsDatabase();
-          saveCmsToSupabase(current);
+          await saveCmsToSupabase(current);
         }
         return NextResponse.json({ success: true, data: updated });
       }
@@ -72,7 +85,7 @@ export async function POST(req: NextRequest) {
         const updated = deleteEventProject(payload.id);
         if (isSupabaseConfigured()) {
           const current = getCmsDatabase();
-          saveCmsToSupabase(current);
+          await saveCmsToSupabase(current);
         }
         return NextResponse.json({ success: true, data: updated });
       }
@@ -80,7 +93,7 @@ export async function POST(req: NextRequest) {
         const updated = saveService(payload);
         if (isSupabaseConfigured()) {
           const current = getCmsDatabase();
-          saveCmsToSupabase(current);
+          await saveCmsToSupabase(current);
         }
         return NextResponse.json({ success: true, data: updated });
       }
@@ -88,7 +101,7 @@ export async function POST(req: NextRequest) {
         const updated = deleteService(payload.id);
         if (isSupabaseConfigured()) {
           const current = getCmsDatabase();
-          saveCmsToSupabase(current);
+          await saveCmsToSupabase(current);
         }
         return NextResponse.json({ success: true, data: updated });
       }
@@ -96,7 +109,7 @@ export async function POST(req: NextRequest) {
         const updated = saveTestimonial(payload);
         if (isSupabaseConfigured()) {
           const current = getCmsDatabase();
-          saveCmsToSupabase(current);
+          await saveCmsToSupabase(current);
         }
         return NextResponse.json({ success: true, data: updated });
       }
@@ -104,7 +117,7 @@ export async function POST(req: NextRequest) {
         const updated = deleteTestimonial(payload.id);
         if (isSupabaseConfigured()) {
           const current = getCmsDatabase();
-          saveCmsToSupabase(current);
+          await saveCmsToSupabase(current);
         }
         return NextResponse.json({ success: true, data: updated });
       }
@@ -118,7 +131,7 @@ export async function POST(req: NextRequest) {
       case 'reset_defaults': {
         const reset = resetCmsToDefault();
         if (isSupabaseConfigured()) {
-          saveCmsToSupabase(reset);
+          await saveCmsToSupabase(reset);
         }
         return NextResponse.json({ success: true, data: reset });
       }

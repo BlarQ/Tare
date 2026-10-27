@@ -30,6 +30,14 @@ export function getCmsDatabase(): CmsDatabase {
     if (fs.existsSync(DATA_FILE)) {
       const raw = fs.readFileSync(DATA_FILE, 'utf-8');
       const parsed = JSON.parse(raw);
+      // Remove placeholder enquiries from the previous portfolio seed.
+      if (Array.isArray(parsed.inquiries)) {
+        parsed.inquiries = parsed.inquiries.filter((inquiry: VIPInquiry) => !(
+          inquiry.id === 'inq-1' ||
+          inquiry.email === 't.briggs@briggsgroup.ng' ||
+          inquiry.clientName === 'Senator T. Briggs & Family'
+        ));
+      }
       // Keep a newly created/local CMS useful even when it has not been
       // populated yet. The PDF-backed portfolio is the editorial baseline.
       if (!parsed.events?.length) parsed.events = tarePortfolioContent.events as EventProject[];
