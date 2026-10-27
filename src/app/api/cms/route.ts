@@ -124,7 +124,7 @@ export async function POST(req: NextRequest) {
       case 'save_all': {
         saveCmsDatabase(payload);
         if (isSupabaseConfigured()) {
-          saveCmsToSupabase(payload);
+          await saveCmsToSupabase(payload);
         }
         return NextResponse.json({ success: true, data: payload });
       }

@@ -6,7 +6,7 @@ export const initialCmsData: CmsDatabase = {
     monogram: 'ZO',
     tagline: 'MASTER SCENOGRAPHER & LUXURY EVENT ARCHITECT',
     shortBio: 'Directing bespoke imperial weddings, presidential state galas, and monumental milestone celebrations across Lagos, Abuja, London, and Dubai.',
-    location: 'Victoria Island, Lagos · Abuja · London · Dubai',
+    location: 'FESTAC TOWN, LAGOS, NIGERIA',
     logoLight: '',
     logoDark: '',
     themePreset: 'darkroom_walnut',

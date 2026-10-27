@@ -261,7 +261,15 @@ export async function saveCmsToSupabase(db: CmsDatabase): Promise<boolean> {
       });
     }
 
-    // 3. Upsert Events
+    // 3. Sync Events / Gallery Folders
+    // Remove cloud rows no longer present locally so CMS deletions stay deleted.
+    const eventIds = (events || []).map((event) => event.id).filter(Boolean);
+    const eventDeleteQuery = eventIds.length > 0
+      ? client.from('event_projects').delete().not('id', 'in', `(${eventIds.map((id) => `"${id.replace(/"/g, '\\"')}"`).join(',')})`)
+      : client.from('event_projects').delete().neq('id', '');
+    const { error: eventDeleteError } = await eventDeleteQuery;
+    if (eventDeleteError) throw eventDeleteError;
+
     if (events && events.length > 0) {
       const formattedEvents = events.map((e) => ({
         id: e.id,
@@ -286,10 +294,18 @@ export async function saveCmsToSupabase(db: CmsDatabase): Promise<boolean> {
         sort_order: e.order,
         updated_at: new Date().toISOString(),
       }));
-      await client.from('event_projects').upsert(formattedEvents);
+      const { error: eventUpsertError } = await client.from('event_projects').upsert(formattedEvents);
+      if (eventUpsertError) throw eventUpsertError;
     }
 
-    // 4. Upsert Services
+    // 4. Sync Services
+    const serviceIds = (services || []).map((service) => service.id).filter(Boolean);
+    const serviceDeleteQuery = serviceIds.length > 0
+      ? client.from('service_packages').delete().not('id', 'in', `(${serviceIds.map((id) => `"${id.replace(/"/g, '\\"')}"`).join(',')})`)
+      : client.from('service_packages').delete().neq('id', '');
+    const { error: serviceDeleteError } = await serviceDeleteQuery;
+    if (serviceDeleteError) throw serviceDeleteError;
+
     if (services && services.length > 0) {
       const formattedServices = services.map((s) => ({
         id: s.id,
@@ -304,10 +320,19 @@ export async function saveCmsToSupabase(db: CmsDatabase): Promise<boolean> {
         sort_order: s.order,
         updated_at: new Date().toISOString(),
       }));
-      await client.from('service_packages').upsert(formattedServices);
+      const { error: serviceUpsertError } = await client.from('service_packages').upsert(formattedServices);
+      if (serviceUpsertError) throw serviceUpsertError;
     }
 
-    // 5. Upsert Testimonials
+    // 5. Sync Testimonials / Feedbacks
+    // Remove cloud rows no longer present locally so CMS deletions stay deleted.
+    const testimonialIds = (testimonials || []).map((testimonial) => testimonial.id).filter(Boolean);
+    const testimonialDeleteQuery = testimonialIds.length > 0
+      ? client.from('testimonials').delete().not('id', 'in', `(${testimonialIds.map((id) => `"${id.replace(/"/g, '\\"')}"`).join(',')})`)
+      : client.from('testimonials').delete().neq('id', '');
+    const { error: testimonialDeleteError } = await testimonialDeleteQuery;
+    if (testimonialDeleteError) throw testimonialDeleteError;
+
     if (testimonials && testimonials.length > 0) {
       const formattedTestimonials = testimonials.map((t) => ({
         id: t.id,
@@ -321,7 +346,8 @@ export async function saveCmsToSupabase(db: CmsDatabase): Promise<boolean> {
         is_featured: t.isFeatured,
         sort_order: t.order,
       }));
-      await client.from('testimonials').upsert(formattedTestimonials);
+      const { error: testimonialUpsertError } = await client.from('testimonials').upsert(formattedTestimonials);
+      if (testimonialUpsertError) throw testimonialUpsertError;
     }
 
     return true;

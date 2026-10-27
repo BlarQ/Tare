@@ -4,7 +4,7 @@
     "monogram": "TP",
     "tagline": "MASTER SCENOGRAPHER & LUXURY EVENT ARCHITECT",
     "shortBio": "Strategic event planning and delivery for corporate, executive, international, and large-scale experiences.",
-    "location": "Victoria Island, Lagos · Abuja · London · Dubai",
+    "location": "FESTAC TOWN, LAGOS, NIGERIA",
     "logoLight": "",
     "logoDark": "",
     "themePreset": "darkroom_walnut",
@@ -44,29 +44,6 @@
   "sections": [],
   "events": [
     {
-      "id": "tare-corporate-seplat",
-      "slug": "seplat-energy-anniversary",
-      "title": "SEPLAT ENERGY ANNIVERSARY",
-      "subtitle": "Corporate experience / Lagos",
-      "category": "Corporate Experience",
-      "year": "2025",
-      "location": "Lagos, Nigeria",
-      "venue": "Corporate event environment",
-      "guestCount": "2,000 attendees",
-      "budgetTier": "Large-scale delivery",
-      "coverImage": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop",
-      "galleryImages": [],
-      "description": "A large corporate anniversary experience requiring a clear guest journey, coordinated production, and confident live delivery at scale.",
-      "deliverables": [
-        "Event planning and production coordination",
-        "Guest experience and programme flow",
-        "Vendor and stakeholder management",
-        "On-site live delivery"
-      ],
-      "isFeatured": true,
-      "order": 1
-    },
-    {
       "id": "tare-executive-pil",
       "slug": "pil-ceo-dinner",
       "title": "PIL CEO DINNER",
@@ -78,6 +55,7 @@
       "guestCount": "300 guests",
       "budgetTier": "Executive experience",
       "coverImage": "/PIL CEO DINNER/p1.jpeg",
+      "inlineHeadlineImage": null,
       "galleryImages": [
         "/PIL CEO DINNER/p1.jpeg",
         "/PIL CEO DINNER/p2.jpeg",
@@ -85,6 +63,7 @@
         "/PIL CEO DINNER/p4.jpeg",
         "/PIL CEO DINNER/p5.jpeg"
       ],
+      "videoReelUrl": null,
       "description": "An intimate executive dinner designed around hospitality, timing, venue experience, and a level of detail appropriate for senior leadership.",
       "deliverables": [
         "Executive guest experience",
@@ -92,6 +71,8 @@
         "Programme and run-of-show management",
         "Live event ownership"
       ],
+      "vendorCredits": [],
+      "clientQuote": null,
       "isFeatured": true,
       "order": 2
     },
@@ -107,6 +88,7 @@
       "guestCount": "85 international delegates",
       "budgetTier": "Multi-location delivery",
       "coverImage": "/Executive Leadership Retreat, Tanzania/1.jpeg",
+      "inlineHeadlineImage": null,
       "galleryImages": [
         "/Executive Leadership Retreat, Tanzania/1.jpeg",
         "/Executive Leadership Retreat, Tanzania/2.jpeg",
@@ -125,6 +107,7 @@
         "/Executive Leadership Retreat, Tanzania/15.jpeg",
         "/Executive Leadership Retreat, Tanzania/16.jpeg"
       ],
+      "videoReelUrl": null,
       "description": "An international leadership experience delivered across locations with careful coordination, communication, and programme ownership from planning through execution.",
       "deliverables": [
         "International delegate coordination",
@@ -132,34 +115,30 @@
         "Programme logistics",
         "Stakeholder and live delivery management"
       ],
+      "vendorCredits": [],
+      "clientQuote": null,
       "isFeatured": true,
       "order": 3
-    },
-    {
-      "id": "tare-large-scale-finesse",
-      "slug": "finesse-events-large-scale",
-      "title": "FINESSE EVENTS",
-      "subtitle": "Large-scale delivery / Nigeria",
-      "category": "Large-Scale Delivery",
-      "year": "2022–2024",
-      "location": "Nigeria",
-      "venue": "Large-scale event environments",
-      "guestCount": "800–20,000 guests",
-      "budgetTier": "Large-scale programmes",
-      "coverImage": "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2070&auto=format&fit=crop",
-      "galleryImages": [],
-      "description": "A body of large-scale work spanning public-facing experiences, corporate programmes, and high-volume guest environments where delivery discipline matters as much as the idea.",
-      "deliverables": [
-        "End-to-end programme support",
-        "Production and logistics coordination",
-        "Vendor management",
-        "On-site operations and delivery"
-      ],
-      "isFeatured": false,
-      "order": 4
     }
   ],
   "services": [
+    {
+      "id": "srv-1",
+      "title": "IMPERIAL NUPTIALS & 3-DAY CELEBRATIONS",
+      "tagline": "Complete 360-degree planning, traditional engagement & white wedding direction.",
+      "tierBadge": "SIGNATURE SERVICE",
+      "description": "Zara personally oversees all facets: multi-day guest hospitality, custom 3D WebGL pre-visualization, traditional royal protocol, 50,000-stem floral couture, top Nigerian & international culinary brigades, and turnkey on-site production.",
+      "deliverables": [
+        "Dedicated 24/7 VIP Concierge & Master Protocol Team",
+        "3D Real-Time Spatial Modeling & Photometric Simulation",
+        "Curated International & Nigerian Luxury Vendors",
+        "Full Day-of On-Site Production Team (30+ Senior Staff)"
+      ],
+      "timeline": "8 — 16 Months in Advance",
+      "investmentTier": "Full Planning from ₦45,000,000 / $50,000",
+      "isFeatured": true,
+      "order": 1
+    },
     {
       "id": "tare-service-align",
       "title": "Align",
@@ -174,6 +153,22 @@
       "investmentTier": "Bespoke",
       "isFeatured": true,
       "order": 1
+    },
+    {
+      "id": "srv-2",
+      "title": "SPATIAL SCENOGRAPHY & LIGHTING ARCHITECTURE",
+      "tagline": "Transformative structural builds, botanical architecture, and lighting design.",
+      "tierBadge": "DESIGN & PRODUCTION",
+      "description": "For clients and brands with logistics handled who require Zara architectural mastery to build custom pavilions, monolithic mirrored banquets, and volumetric light shows.",
+      "deliverables": [
+        "Architectural Spatial Blueprints & 3D Lighting Decks",
+        "Master Botanical & Floral Haute Couture Direction",
+        "Custom Monogram Tableware & African Brass Accents"
+      ],
+      "timeline": "4 — 8 Months in Advance",
+      "investmentTier": "Scenography Direction from ₦25,000,000 / $30,000",
+      "isFeatured": true,
+      "order": 2
     },
     {
       "id": "tare-service-plan",
@@ -232,9 +227,52 @@
       "eventTitle": "Executive experience",
       "location": "Lagos",
       "date": "2025",
+      "pressOutlet": null,
+      "pressLogoUrl": null,
       "isFeatured": true,
       "order": 1
+    },
+    {
+      "id": "feedback-1793117602325",
+      "quote": "Great event coordination from PEJ",
+      "clientName": "Adedamola",
+      "eventTitle": "Wedding",
+      "location": "Lagos",
+      "date": "24/12/2026",
+      "pressOutlet": "",
+      "pressLogoUrl": "",
+      "isFeatured": true,
+      "order": 2
     }
   ],
-  "inquiries": []
+  "inquiries": [
+    {
+      "id": "inq-1793117038284",
+      "clientName": "Adedamola",
+      "email": "collinsogunlala@gmail.com",
+      "phone": "",
+      "eventType": "Wedding",
+      "estimatedDate": "12/2026",
+      "location": "Lagos",
+      "guestCount": "500",
+      "budgetRange": "Bespoke Inquiry",
+      "visionNotes": "My Wedding coming up by December!",
+      "status": "new",
+      "createdAt": "2026-10-27T16:03:58.284+00:00"
+    },
+    {
+      "id": "inq-1793117031616",
+      "clientName": "Adedamola",
+      "email": "collinsogunlala@gmail.com",
+      "phone": "",
+      "eventType": "Wedding",
+      "estimatedDate": "12/2026",
+      "location": "Lagos",
+      "guestCount": "500",
+      "budgetRange": "Bespoke Inquiry",
+      "visionNotes": "My Wedding coming up by December!",
+      "status": "new",
+      "createdAt": "2026-10-27T16:03:51.616+00:00"
+    }
+  ]
 }

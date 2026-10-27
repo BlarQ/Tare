@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { ArrowDown, ArrowUpRight, Check, ChevronDown, Mail, MapPin, Menu, Phone, X } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Check, ChevronDown, ChevronLeft, ChevronRight, Mail, MapPin, Menu, Phone, X } from 'lucide-react';
 import { FormEvent, ReactNode, useEffect, useRef, useState } from 'react';
 import { CmsDatabase, EventProject } from '@/types/cms';
 
@@ -88,14 +88,24 @@ function ScrollWordReveal({ lines, tag = 'h2', className = '' }: { lines: { text
   return <div ref={revealRef} className="scroll-word-reveal"><Tag className={className} aria-label={lines.map((line) => line.text).join(' ')}>{lines.map((line) => <span className={`scroll-word-line${line.italic ? ' is-italic' : ''}`} key={line.text}>{line.text.split(' ').map((word) => { const index = wordIndex; wordIndex += 1; const wordProgress = Math.min(Math.max((progress - index * wordStagger) * words.length * 1.5, 0), 1); return <span className="scroll-word" key={`${word}-${index}`} style={{ opacity: 0.12 + wordProgress * 0.88, transform: `translateY(${(1 - wordProgress) * 18}px)` }}>{word}</span>; })}</span>)}</Tag></div>;
 }
 
+function latestEventYear(year: string): number {
+  const years = year.match(/\d{4}/g)?.map(Number) || [];
+  return years.length ? Math.max(...years) : 0;
+}
+
 export default function PortfolioSite({ data }: { data: CmsDatabase }) {
   const { settings, events, services, testimonials } = data;
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState<EventProject | null>(null);
   const [selectedImage, setSelectedImage] = useState<{ image: string; title: string; index: number } | null>(null);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+  const [activeFeedback, setActiveFeedback] = useState(0);
   const [formState, setFormState] = useState({ clientName: '', email: '', eventType: '', estimatedDate: '', location: '', guestCount: '', budgetRange: '', visionNotes: '' });
-  const featured = events.filter((event) => event.isFeatured).slice(0, 3);
+  const featured = [...events]
+    .sort((a, b) => latestEventYear(b.year) - latestEventYear(a.year) || b.order - a.order)
+    .slice(0, 2);
+  const visibleFeedbacks = testimonials.filter((item) => item.isFeatured).length > 0 ? testimonials.filter((item) => item.isFeatured) : testimonials;
   const galleryImages = events.flatMap((event) => event.galleryImages.map((image, index) => ({ image, title: event.title, index })));
 
   const moveLightbox = (direction: -1 | 1) => {
@@ -106,12 +116,21 @@ export default function PortfolioSite({ data }: { data: CmsDatabase }) {
   };
 
   const updateField = (key: keyof typeof formState, value: string) => setFormState((current) => ({ ...current, [key]: value }));
+  useEffect(() => {
+    if (visibleFeedbacks.length < 2) return;
+    const timer = window.setInterval(() => setActiveFeedback((current) => (current + 1) % visibleFeedbacks.length), 6500);
+    return () => window.clearInterval(timer);
+  }, [visibleFeedbacks.length]);
   const submitInquiry = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setSubmitError('');
     const response = await fetch('/api/inquiries', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formState) });
+    const result = await response.json().catch(() => ({}));
     if (response.ok) {
       setSubmitted(true);
       setFormState({ clientName: '', email: '', eventType: '', estimatedDate: '', location: '', guestCount: '', budgetRange: '', visionNotes: '' });
+    } else {
+      setSubmitError(result.error || 'We could not deliver your enquiry. Please try again or contact us directly.');
     }
   };
 
@@ -154,9 +173,9 @@ export default function PortfolioSite({ data }: { data: CmsDatabase }) {
 
       <section className="services-section" id="services"><div className="section-label">04 / The atelier</div><div className="services-intro"><h2>From first sketch<br />to <em>final toast.</em></h2><p>We build the feeling and the framework behind extraordinary celebrations: creative direction, production discipline, and a calm hand at every detail.</p></div><div className="service-list">{services.slice(0, 4).map((service, index) => <div className="service-row" key={service.id}><span className="service-number">0{index + 1}</span><div><h3>{service.title}</h3><p>{service.description}</p></div><span className="service-tag">{service.timeline}</span><ArrowUpRight size={18} /></div>)}</div></section>
 
-      <section className="quote-section"><div className="quote-mark">“</div><blockquote>{testimonials[0]?.quote || 'The most memorable celebrations are not decorated. They are authored.'}</blockquote><p>— {testimonials[0]?.clientName || 'Private client, Lagos'}</p></section>
+      <section className="quote-section"><div className="quote-mark">“</div><div className="feedback-carousel" aria-live="polite"><blockquote>{visibleFeedbacks[activeFeedback]?.quote || 'The most memorable celebrations are not decorated. They are authored.'}</blockquote><p>— {visibleFeedbacks[activeFeedback]?.clientName || 'Private client, Lagos'}</p>{visibleFeedbacks.length > 1 && <div className="feedback-controls"><button type="button" onClick={() => setActiveFeedback((activeFeedback - 1 + visibleFeedbacks.length) % visibleFeedbacks.length)} aria-label="Previous feedback"><ChevronLeft size={17} /></button><span>{String(activeFeedback + 1).padStart(2, '0')} / {String(visibleFeedbacks.length).padStart(2, '0')}</span><button type="button" onClick={() => setActiveFeedback((activeFeedback + 1) % visibleFeedbacks.length)} aria-label="Next feedback"><ChevronRight size={17} /></button></div>}</div></section>
 
-      <section className="contact-section" id="contact"><div className="contact-intro"><div className="section-label">04 / Private commissions</div><h2>Tell us what<br /><em>you’re imagining.</em></h2><p>For dates, availability, and a considered first conversation, share a little about your celebration. Every enquiry is read personally.</p><div className="contact-details"><span>{settings.planner.fullName}</span><a href={`mailto:${settings.contactEmail}`}><Mail size={16} /> {settings.contactEmail}</a><a href={`tel:${settings.contactPhone.replace(/\s/g, '')}`}><Phone size={16} /> {settings.contactPhone}</a><span>{settings.location}</span></div></div><form className="inquiry-form" onSubmit={submitInquiry}>{submitted ? <div className="form-success"><Check size={28} /><h3>Your note is with the atelier.</h3><p>We’ll be in touch within two working days.</p><button type="button" className="text-link" onClick={() => setSubmitted(false)}>Send another enquiry</button></div> : <><div className="form-row"><label>Your name<input required value={formState.clientName} onChange={(e) => updateField('clientName', e.target.value)} /></label><label>Email address<input required type="email" value={formState.email} onChange={(e) => updateField('email', e.target.value)} /></label></div><div className="form-row"><label>Celebration type<select required value={formState.eventType} onChange={(e) => updateField('eventType', e.target.value)}><option value="">Select one</option><option>Wedding</option><option>Private celebration</option><option>Gala / corporate</option><option>Destination event</option></select></label><label>Preferred date<input type="text" placeholder="Month / year" value={formState.estimatedDate} onChange={(e) => updateField('estimatedDate', e.target.value)} /></label></div><div className="form-row"><label>Location<input value={formState.location} onChange={(e) => updateField('location', e.target.value)} /></label><label>Guest count<input value={formState.guestCount} onChange={(e) => updateField('guestCount', e.target.value)} /></label></div><label>Tell us about the feeling you want to create<textarea rows={4} value={formState.visionNotes} onChange={(e) => updateField('visionNotes', e.target.value)} /></label><button className="button button-solid" type="submit">Begin the conversation <ArrowUpRight size={16} /></button></>}</form></section>
+      <section className="contact-section" id="contact"><div className="contact-intro"><div className="section-label">04 / Private commissions</div><h2>Tell us what<br /><em>you’re imagining.</em></h2><p>For dates, availability, and a considered first conversation, share a little about your celebration. Every enquiry is read personally.</p><div className="contact-details"><span>{settings.planner.fullName}</span><a href={`mailto:${settings.contactEmail}`}><Mail size={16} /> {settings.contactEmail}</a><a href={`tel:${settings.contactPhone.replace(/\s/g, '')}`}><Phone size={16} /> {settings.contactPhone}</a><span>{settings.location}</span></div></div><form className="inquiry-form" onSubmit={submitInquiry}>{submitted ? <div className="form-success"><Check size={28} /><h3>Your note is with the atelier.</h3><p>We’ll be in touch within two working days.</p><button type="button" className="text-link" onClick={() => setSubmitted(false)}>Send another enquiry</button></div> : <><div className="form-row"><label>Your name<input required value={formState.clientName} onChange={(e) => updateField('clientName', e.target.value)} /></label><label>Email address<input required type="email" value={formState.email} onChange={(e) => updateField('email', e.target.value)} /></label></div><div className="form-row"><label>Celebration type<select required value={formState.eventType} onChange={(e) => updateField('eventType', e.target.value)}><option value="">Select one</option><option>Wedding</option><option>Private celebration</option><option>Gala / corporate</option><option>Destination event</option></select></label><label>Preferred date<input type="text" placeholder="Month / year" value={formState.estimatedDate} onChange={(e) => updateField('estimatedDate', e.target.value)} /></label></div><div className="form-row"><label>Location<input value={formState.location} onChange={(e) => updateField('location', e.target.value)} /></label><label>Guest count<input value={formState.guestCount} onChange={(e) => updateField('guestCount', e.target.value)} /></label></div><label>Tell us about the feeling you want to create<textarea rows={4} value={formState.visionNotes} onChange={(e) => updateField('visionNotes', e.target.value)} /></label>{submitError && <p className="form-error" role="alert">{submitError}</p>}<button className="button button-solid" type="submit">Begin the conversation <ArrowUpRight size={16} /></button></>}</form></section>
 
       <footer className="portfolio-footer"><a href="#top" className="wordmark"><span>{settings.monogram}</span> {settings.brandName} <small>ATELIER</small></a><p>{settings.footerCopyright}</p><div className="footer-socials"><a href={settings.socialLinks.instagram || '#'} aria-label="Instagram">IG</a><a href={settings.socialLinks.linkedin || '#'} aria-label="LinkedIn">LI</a></div></footer>
 

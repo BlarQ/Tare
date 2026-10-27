@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     '3D event visualizer',
     'imperial wedding planner',
     'presidential state gala production',
-    'Victoria Island luxury events'
+    'FESTAC TOWN, LAGOS, NIGERIA event planning'
   ],
   authors: [{ name: 'Tare Precious' }],
   openGraph: {

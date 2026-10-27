@@ -4,7 +4,7 @@ export const tarePortfolioContent = {
     monogram: 'TP',
     tagline: 'EVENT PLANNING & DELIVERY',
     shortBio: 'Strategic event planning and delivery for corporate, executive, international, and large-scale experiences.',
-    location: 'Lagos · Abuja · London · International',
+    location: 'FESTAC TOWN, LAGOS, NIGERIA',
     contactEmail: 'tareprecious5122@gmail.com',
     contactPhone: '+234 9020 804 049',
     footerCopyright: '© 2026 Tare Precious James. EVENTS ELEVATED. EXPERIENCES DELIVERED.',

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getCmsDatabase, addInquiry, updateInquiryStatus } from '@/lib/cms-store';
 import { isSupabaseConfigured, insertInquiryToSupabase, getSupabaseServerClient } from '@/lib/supabase';
 import { isStudioAuthorized } from '@/lib/studio-auth';
+import { sendInquiryNotification } from '@/lib/email';
 
 export async function GET(req: NextRequest) {
   try {
@@ -72,7 +73,13 @@ export async function POST(req: NextRequest) {
       await insertInquiryToSupabase(inquiry);
     }
 
-    return NextResponse.json({ success: true, inquiry });
+    const emailNotification = await sendInquiryNotification(inquiry);
+
+    if (!emailNotification.sent) {
+      return NextResponse.json({ success: false, saved: true, inquiry, error: emailNotification.reason }, { status: 503 });
+    }
+
+    return NextResponse.json({ success: true, inquiry, emailNotification });
   } catch (error) {
     return NextResponse.json({ success: false, error: (error as Error).message }, { status: 500 });
   }
